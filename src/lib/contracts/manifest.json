@@ -1,0 +1,41 @@
+{
+  "network": "testnet",
+  "rpcUrl": "https://soroban-testnet.stellar.org",
+  "horizonUrl": "https://horizon-testnet.stellar.org",
+  "networkPassphrase": "Test SDF Network ; September 2015",
+  "protocolVersion": 29,
+  "treasuryVaultId": "CD4S3FUVKPPHQMOI36AWTPGBYNWYRVHFNMRPATEIHENURQK77A5YTMWU",
+  "vaultFactoryId": "CC2Q2JLSIHMIXS4VQMNG57FXO4LPUQPSK2Z6CQAQXH5AKL6Y5NX4TBCF",
+  "treasuryVaultWasmHash": "55be053e80de94bd6935d66b36e26f0bc2543e752a0e9b06244e355519c80674",
+  "eurcSacId": "CBESXK3KRJKX7FI6HJQEY26KQ3ZYRFNDG3IICYOMGMJHLLFCCKZNV3DS",
+  "usdcSacId": "CCVE7CGVRI5T5S6GXSLRAVEYCA2XZIWHJJ7IVGTUVW6DOD2R34VDAX6K",
+  "eurcAssetCode": "EURC",
+  "usdcAssetCode": "USDC",
+  "issuerPublicKey": "GDISHSSKOXL3JY2L5NGZZMMOC7LPUTXJHEOQ64BH6JIVNFWC7ITUIYRU",
+  "cfoAdminPublicKey": "GD2P62GWWAIG2I3OBQNG5PD3TZPJPTJHAE3MH47B4MAZPJSDYPZY3SJO",
+  "opsSpenderPublicKey": "GAEWLFKZOO7SI46XXETJ4TSVKPHODNBFSZOPDP2OZTDYA4P6Y7RTR5BA",
+  "agentSpenderPublicKey": "GB6KLHIUD2T7EYDA5HBTPBVHN44IQMCYSWBIYZPGSQ3TUEZ5SYQXZFWO",
+  "vendorRecipientPublicKey": "GDBRUBLKMK2IARDO2BOICJL4Z7ZI3BWXOGRVCEVE6NXTNABPYJCKLCVH",
+  "x402FacilitatorPublicKey": "GCZV6CEOL3UHGJ6ZAJIWD5IXPLBTRIBNW4KB6CYHF2V4CSCOPHS23PKB",
+  "subsidiaryVaults": [
+    {
+      "subsidiaryCode": "LISBON_HQ",
+      "name": "Portus Iberia S.A.",
+      "jurisdiction": "Lisbon, PT",
+      "vaultAddress": "CDDKREHRD473MCXFCZXUXT2YXOZYLRWMGVTHK46WM3DTM2ONZLZXO7CW",
+      "executableTag": "v1_vault",
+      "wasmHash": "55be053e80de94bd6935d66b36e26f0bc2543e752a0e9b06244e355519c80674",
+      "deployedLedger": 5381488
+    },
+    {
+      "subsidiaryCode": "FRANKFURT",
+      "name": "Portus DACH GmbH",
+      "jurisdiction": "Frankfurt, DE",
+      "vaultAddress": "CA2KQKNSM33IVXEUBINM6NQ3GSJ3ASD6LSJL7DZASL5CB7KABNKJHPFB",
+      "executableTag": "v1_vault",
+      "wasmHash": "55be053e80de94bd6935d66b36e26f0bc2543e752a0e9b06244e355519c80674",
+      "deployedLedger": 5381489
+    }
+  ],
+  "seededAt": "2026-10-25T12:24:13.383Z"
+}

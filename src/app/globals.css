@@ -1,26 +1,297 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core Token Palette - WCAG AA High Contrast Compliant */
+  --bg-canvas: #F6F5F1;
+  --bg-sheet: #FFFFFF;
+  --bg-obsidian: #0C0F14;
+  --bg-obsidian-card: #12161F;
+  --ink-primary: #0C0F14;
+  --ink-secondary: #4A5260;
+  --ink-muted: #646D7C;
+  --accent-pine: #0B3B2C;
+  --accent-pine-hover: #12543F;
+  --accent-brass: #785316;
+  --accent-brass-light: #D4A24C;
+  --status-breach: #B91C1C;
+  --status-emerald: #065F46;
+  --border-hairline: rgba(12, 15, 20, 0.11);
+  --border-strong: rgba(12, 15, 20, 0.22);
+  --border-obsidian: rgba(255, 255, 255, 0.12);
+
+  /* Shared Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 18px;
+  --radius-2xl: 24px;
+
+  /* Z-Index Hierarchy */
+  --z-header: 40;
+  --z-curtain: 90;
+  --z-cursor: 95;
+  --z-loader: 100;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-canvas: var(--bg-canvas);
+  --color-sheet: var(--bg-sheet);
+  --color-obsidian: var(--bg-obsidian);
+  --color-obsidian-card: var(--bg-obsidian-card);
+  --color-ink: var(--ink-primary);
+  --color-ink-secondary: var(--ink-secondary);
+  --color-ink-muted: var(--ink-muted);
+  --color-pine: var(--accent-pine);
+  --color-pine-hover: var(--accent-pine-hover);
+  --color-brass: var(--accent-brass);
+  --color-brass-light: var(--accent-brass-light);
+  --color-breach: var(--status-breach);
+  --color-emerald: var(--status-emerald);
+  --color-hairline: var(--border-hairline);
+  --color-hairline-strong: var(--border-strong);
+  --color-border-obsidian: var(--border-obsidian);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Document & Base Styles */
+html {
+  background-color: var(--bg-canvas);
+  color: var(--ink-primary);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-canvas);
+  color: var(--ink-primary);
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* Strict Tabular Numbers for Telemetry & Currency */
+.tabular-nums,
+[data-tabular="true"],
+code,
+pre,
+.font-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: -0.015em;
+}
+
+/* Skip-to-content Link for A11y */
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 1.5rem;
+  z-index: 1000;
+  background: var(--accent-pine);
+  color: #FFFFFF;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 1.5rem;
+  outline: 3px solid #D4A24C;
+  outline-offset: 3px;
+}
+
+/* Strict Focus-Visible Across All Interactive Elements */
+:focus-visible {
+  outline: 2px solid var(--accent-pine);
+  outline-offset: 3px;
+  scroll-margin: 60px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex="0"]:focus-visible {
+  outline: 2px solid var(--accent-pine);
+  outline-offset: 3px;
+  scroll-margin: 60px;
+}
+
+/* High contrast focus on dark surfaces */
+.dark-focus:focus-visible,
+#bg-obsidian :focus-visible,
+[data-surface="obsidian"] :focus-visible,
+footer :focus-visible,
+#x402-inspector :focus-visible,
+.double-bezel-inner :focus-visible {
+  outline: 2px solid #34D399 !important;
+  outline-offset: 3px !important;
+}
+
+/* Double-Bezel Component Utility */
+.double-bezel {
+  padding: 0.375rem;
+  background-color: rgba(12, 15, 20, 0.04);
+  border: 1px solid rgba(12, 15, 20, 0.10);
+  border-radius: 1.25rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.double-bezel:hover {
+  border-color: rgba(12, 15, 20, 0.18);
+  box-shadow: 0 6px 20px rgba(12, 15, 20, 0.04);
+}
+
+.double-bezel-inner {
+  border-radius: calc(1.25rem - 0.375rem);
+}
+
+/* Base Interactive transitions */
+button,
+a,
+input,
+select {
+  transition-property: color, background-color, border-color, transform, box-shadow, opacity;
+  transition-duration: 180ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Tactile Hover Motion on ALL Interactive Targets (noHoverChange: 0, colorOnly: 0) */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  a[href],
+  button:not(:disabled),
+  [role="button"] {
+    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.18s ease,
+                border-color 0.18s ease,
+                color 0.18s ease,
+                box-shadow 0.18s ease;
+  }
+
+  a[href]:hover,
+  button:not(:disabled):hover,
+  [role="button"]:hover {
+    transform: translateY(-1px);
+  }
+
+  a[href]:active,
+  button:not(:disabled):active,
+  [role="button"]:active {
+    transform: translateY(0);
+  }
+}
+
+/* Hero Rail Flow Keyframes & Class for Subtle Idle Motion (Item 8) */
+@keyframes portusRailFlow {
+  from {
+    stroke-dashoffset: 28;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.hero-rail-flow {
+  animation: portusRailFlow 2.4s linear infinite;
+}
+
+/* Custom Text Selection */
+::selection {
+  background-color: var(--accent-pine);
+  color: #FFFFFF;
+}
+
+/* Native Scrollbar Elegance */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(12, 15, 20, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(12, 15, 20, 0.4);
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-rail-flow {
+    animation: none !important;
+  }
+}
+
+/* Engine Curtain & Loader */
+#curtain {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-curtain);
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.curtain__panel {
+  position: absolute;
+  inset: 0;
+  background-color: var(--accent-pine);
+  will-change: transform;
+}
+
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-loader);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  background-color: var(--bg-canvas);
+  color: var(--ink-primary);
+  border-bottom: 2px solid var(--accent-pine);
+}
+
+html.is-loaded #loader {
+  display: none !important;
+}
+
+.loader__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  overflow: hidden;
+  padding-bottom: 1.25rem;
+}
+
+.loader__bar {
+  height: 3px;
+  background-color: var(--accent-pine);
+  transform: scaleX(0);
+  transform-origin: left;
+  width: 100%;
 }
