@@ -1,30 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  /* Core Token Palette - WCAG AA High Contrast Compliant */
+  /* Portus Brand Tokens & Mercury Geometry System */
+  --surface-canvas: #0C0F14;
+  --surface-raised: #12161F;
+  --surface-overlay: #181E29;
+  
   --bg-canvas: #F6F5F1;
   --bg-sheet: #FFFFFF;
   --bg-obsidian: #0C0F14;
   --bg-obsidian-card: #12161F;
+  --bg-obsidian-overlay: #181E29;
+  
   --ink-primary: #0C0F14;
   --ink-secondary: #4A5260;
   --ink-muted: #646D7C;
+  --ink-on-dark: #EDEDF3;
+  --ink-on-dark-muted: rgba(255, 255, 255, 0.75);
+
+  /* Primary Brand: Sovereign Pine & Emerald */
   --accent-pine: #0B3B2C;
   --accent-pine-hover: #12543F;
+  --accent-pine-light: #10B981;
+  --accent-pine-glow: rgba(16, 185, 129, 0.16);
+
+  /* Secondary Brand: Clearinghouse Brass & Amber */
   --accent-brass: #785316;
   --accent-brass-light: #D4A24C;
-  --status-breach: #B91C1C;
-  --status-emerald: #065F46;
-  --border-hairline: rgba(12, 15, 20, 0.11);
-  --border-strong: rgba(12, 15, 20, 0.22);
-  --border-obsidian: rgba(255, 255, 255, 0.12);
+  --accent-brass-glow: rgba(212, 162, 76, 0.16);
 
-  /* Shared Radii */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 18px;
-  --radius-2xl: 24px;
+  /* Status Colors */
+  --status-breach: #EF4444;
+  --status-breach-bg: rgba(239, 68, 68, 0.15);
+  --status-emerald: #065F46;
+  --status-settled: #10B981;
+
+  /* Hairlines & Borders */
+  --border-hairline: rgba(12, 15, 20, 0.08);
+  --border-hairline-light: rgba(12, 15, 20, 0.11);
+  --border-strong: rgba(12, 15, 20, 0.22);
+  --border-obsidian: rgba(255, 255, 255, 0.08);
+  --border-obsidian-active: rgba(255, 255, 255, 0.16);
+
+  /* Mercury Pill & Card Geometry */
+  --radius-pill: 9999px;
+  --radius-card: 24px;
+  --radius-card-sm: 16px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
 
   /* Z-Index Hierarchy */
   --z-header: 40;

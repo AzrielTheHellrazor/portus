@@ -9,6 +9,7 @@ import type {
 } from "@/types/treasury";
 import { signTreasuryAction, type PasskeyMode } from "./passkey-client";
 import { WalletConnectWidget } from "./WalletConnectWidget";
+import { Meter, Switch } from "@/components/ui";
 import {
   stellarLabContractUrl,
   stellarLabTxUrl,
@@ -371,20 +372,12 @@ export function TreasuryCockpit({
 
                 {/* Card Spend Meter */}
                 <div className="my-6">
-                  <div className="flex items-center justify-between text-xs font-mono mb-2">
-                    <span className="text-white/75">Daily Spend Progress</span>
-                    <span className="font-semibold text-white tabular-nums">
-                      ${fmt(opsPolicy.spentTodayUsdc)} / ${fmt(opsPolicy.dailyLimitUsdc)} USDC
-                    </span>
-                  </div>
-                  <div className="w-full h-2 rounded-full bg-white/10 overflow-hidden">
-                    <div
-                      className={`h-full transition-all duration-500 rounded-full ${
-                        opsSpentPct > 80 ? "bg-[#B91C1C]" : "bg-[#065F46]"
-                      }`}
-                      style={{ width: `${opsSpentPct}%` }}
-                    />
-                  </div>
+                  <Meter
+                    value={opsSpentPct}
+                    label="Daily Spend Progress"
+                    valueText={`$${fmt(opsPolicy.spentTodayUsdc)} / $${fmt(opsPolicy.dailyLimitUsdc)} USDC`}
+                    variant={opsSpentPct > 80 ? "breach" : "emerald"}
+                  />
                 </div>
 
                 {/* Card Bottom Meta & CFO Inline Adjuster */}
@@ -464,18 +457,12 @@ export function TreasuryCockpit({
 
                 {/* Card Spend Meter */}
                 <div className="my-6">
-                  <div className="flex items-center justify-between text-xs font-mono mb-2">
-                    <span className="text-white/75">Autonomous Micropayment Spend</span>
-                    <span className="font-semibold text-white tabular-nums">
-                      ${fmt(agentPolicy.spentTodayUsdc)} / ${fmt(agentPolicy.dailyLimitUsdc)} USDC
-                    </span>
-                  </div>
-                  <div className="w-full h-2 rounded-full bg-white/10 overflow-hidden">
-                    <div
-                      className="h-full bg-[#065F46] transition-all duration-500 rounded-full"
-                      style={{ width: `${agentSpentPct}%` }}
-                    />
-                  </div>
+                  <Meter
+                    value={agentSpentPct}
+                    label="Autonomous Micropayment Spend"
+                    valueText={`$${fmt(agentPolicy.spentTodayUsdc)} / ${fmt(agentPolicy.dailyLimitUsdc)} USDC`}
+                    variant={agentSpentPct > 80 ? "breach" : "emerald"}
+                  />
                 </div>
 
                 {/* Card Bottom Meta */}
@@ -709,6 +696,16 @@ export function TreasuryCockpit({
 
             {/* OpenZeppelin Emergency Pause Toggle */}
             <div className="lg:col-span-4 flex flex-col gap-2">
+              <div className="flex items-center justify-between p-2.5 rounded-lg bg-white/5 border border-white/10">
+                <span className="text-xs font-mono text-white/80">Vault Freeze Switch:</span>
+                <Switch
+                  checked={state.paused}
+                  onCheckedChange={handleTogglePause}
+                  disabled={isPolicyPending}
+                  label="Emergency Freeze Vault Switch"
+                />
+              </div>
+
               <button
                 onClick={handleTogglePause}
                 disabled={isPolicyPending}

@@ -69,7 +69,7 @@ export default function PitchDeckPage() {
     {
       number: "01",
       category: "GENESIS PATH FINALIST · HACKMERIDIAN 2026 LISBON",
-      title: "Portus — Institutional Multi-Currency Corporate Treasury on Stellar",
+      title: "Portus: Institutional Multi-Currency Corporate Treasury on Stellar",
       subtitle:
         "Hold Euro reserves natively in EURC SAC. Settle USD operations atomically via SDEX path payments in < 3.5s with zero idle dollar float.",
       content: (
@@ -207,7 +207,7 @@ export default function PitchDeckPage() {
               &ldquo;European CFOs are forced to act as involuntary currency speculators just to pay their cloud bills. Managing multiple foreign bank balances is a relic of 20th-century correspondent banking.&rdquo;
             </blockquote>
             <div className="mt-3 text-xs font-mono text-[#D4A24C]">
-              — Lisbon Maritime Clearinghouse Treasury Problem Brief
+              : Lisbon Maritime Clearinghouse Treasury Problem Brief
             </div>
           </div>
         </div>
