@@ -62,6 +62,12 @@ export default function HomePage() {
       <FleetGrid
         fleet={snapshot.fleet}
         factoryContractId={snapshot.factoryContractId}
+        onSubsidiaryDeployed={(record) => {
+          setSnapshot((prev) => ({
+            ...prev,
+            fleet: [record, ...(prev.fleet ?? []).filter((v) => v.subsidiaryCode !== record.subsidiaryCode)],
+          }));
+        }}
       />
     </div>
   );

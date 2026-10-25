@@ -4,6 +4,7 @@ import { GET as getTreasuryState } from "@/app/api/treasury/state/route";
 import { POST as executeTreasuryScenario } from "@/app/api/treasury/execute/route";
 import { POST as updateTreasuryPolicy } from "@/app/api/treasury/policy/route";
 import { GET as getX402FxIntelligence } from "@/app/api/x402/fx-intelligence/route";
+import { GET as getFleet, POST as deploySubsidiary } from "@/app/api/treasury/fleet/route";
 import { getManifest, isBootstrapped } from "@/lib/stellar/config";
 import type { SettlementReceipt, TreasuryStateSnapshot } from "@/types/treasury";
 
@@ -165,5 +166,38 @@ describe("Portus Live Stellar Testnet End-to-End Suite", () => {
     expect(unfreezeRes.status).toBe(200);
     const unfreezeJson = await unfreezeRes.json();
     expect(unfreezeJson.state.paused).toBe(false);
+  }, 120_000);
+
+  test("6. CAP-0085 Subsidiary Vault Deployment — Factory deploys regional vault sharing Wasm executable tag", async () => {
+    const listRes = await getFleet();
+    expect(listRes.status).toBe(200);
+    const listJson = await listRes.json();
+    expect(listJson.fleet.length).toBeGreaterThanOrEqual(2);
+
+    const testCode = `TEST_${Date.now().toString(36).toUpperCase().slice(-6)}`;
+    const deployReq = new NextRequest("http://localhost:4400/api/treasury/fleet", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        subsidiaryCode: testCode,
+        name: `Portus ${testCode} Operations`,
+        jurisdiction: "Lisbon, PT",
+        executableTag: "v1_vault",
+      }),
+    });
+
+    const deployRes = await deploySubsidiary(deployReq);
+    expect(deployRes.status).toBe(200);
+    const deployJson = await deployRes.json();
+
+    expect(deployJson.ok).toBe(true);
+    expect(deployJson.subsidiary).toBeDefined();
+    expect(deployJson.subsidiary.subsidiaryCode).toBe(testCode);
+    expect(deployJson.subsidiary.vaultAddress).toMatch(/^C[A-Z0-9]{55}$/);
+    expect(deployJson.subsidiary.executableTag).toBe("v1_vault");
+    expect(deployJson.txHash).toMatch(/^[0-9a-f]{64}$/);
+    expect(deployJson.ledger).toBeGreaterThan(5000000);
+    expect(deployJson.explorerUrl).toContain("stellar.expert");
+    expect(deployJson.contractUrl).toContain("stellar.expert");
   }, 120_000);
 });

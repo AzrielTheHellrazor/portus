@@ -88,6 +88,14 @@ export function HeroSection({ state }: HeroSectionProps) {
               </a>
 
               <Link
+                href="/deck"
+                className="inline-flex items-center justify-center gap-2 min-h-8 px-5 py-3.5 text-sm font-semibold text-[#0B3B2C] bg-[#0B3B2C]/10 border border-[#0B3B2C]/25 hover:bg-[#0B3B2C]/15 active:scale-[0.98] rounded-md transition-all focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
+              >
+                <span>View Pitch Deck</span>
+                <span aria-hidden="true">→</span>
+              </Link>
+
+              <Link
                 href="/architecture"
                 className="inline-flex items-center justify-center gap-2 min-h-8 px-5 py-3.5 text-sm font-medium text-[#0C0F14] bg-white border border-[rgba(12,15,20,0.14)] hover:bg-[#F6F5F1] hover:border-[#0C0F14] active:scale-[0.98] rounded-md transition-all focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
               >

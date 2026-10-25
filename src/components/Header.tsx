@@ -98,6 +98,12 @@ export function Header({ state }: HeaderProps) {
             Subsidiary Fleet
           </a>
           <Link
+            href="/deck"
+            className="inline-flex items-center min-h-8 py-1.5 px-2 rounded-md hover:text-[#0C0F14] transition-colors focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
+          >
+            Pitch Deck
+          </Link>
+          <Link
             href="/architecture"
             className="inline-flex items-center min-h-8 py-1.5 px-2 rounded-md hover:text-[#0C0F14] transition-colors focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
           >

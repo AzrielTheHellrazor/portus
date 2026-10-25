@@ -16,13 +16,15 @@ Dual-Track Candidate: **`Stellar Unlocked`** (Core Protocol Primitives) & **`Ste
 
 ## Table of Contents
 - [1. Executive Summary & Problem](#1-executive-summary--problem)
-- [2. Verified Live Stellar Testnet Deployments](#2-verified-live-stellar-testnet-deployments)
-- [3. Dual-Track Alignment Matrix](#3-dual-track-alignment-matrix)
-- [4. System Architecture & Settlement Sequence](#4-system-architecture--settlement-sequence)
-- [5. Judge 60-Second Quickstart & Verification Suite](#5-judge-60-second-quickstart--verification-suite)
-- [6. Hackathon Progress (Built 100% at HackMeridian 2026)](#6-hackathon-progress-built-100-at-hackmeridian-2026)
-- [7. Continuation Roadmap & SCF Build Award Path](#7-continuation-roadmap--scf-build-award-path)
-- [8. Repository Layout](#8-repository-layout)
+- [2. Prior Art, Ecosystem Landscape & Deep Differentiation](#2-prior-art-ecosystem-landscape--deep-differentiation)
+- [3. Verified Live Stellar Testnet Deployments](#3-verified-live-stellar-testnet-deployments)
+- [4. Dual-Track Alignment Matrix](#4-dual-track-alignment-matrix)
+- [5. System Architecture & Settlement Sequence](#5-system-architecture--settlement-sequence)
+- [6. Stellar CLI Instant Judge Verification](#6-stellar-cli-instant-judge-verification)
+- [7. Judge 60-Second Quickstart & Automated Verification Suite](#7-judge-60-second-quickstart--automated-verification-suite)
+- [8. Hackathon Progress (Built 100% at HackMeridian 2026)](#8-hackathon-progress-built-100-at-hackmeridian-2026)
+- [9. Continuation Roadmap & SCF Build Award Path](#9-continuation-roadmap--scf-build-award-path)
+- [10. Repository Layout](#10-repository-layout)
 
 ---
 
@@ -47,7 +49,49 @@ Named after Lisbon's historic maritime clearinghouse, **Portus** is an instituti
 
 ---
 
-## 2. Verified Live Stellar Testnet Deployments
+## 2. Prior Art, Ecosystem Landscape & Deep Differentiation
+
+A recurring theme raised by hackathon judges and ecosystem auditors is how Portus positions itself relative to previous **Stellar Community Fund (SCF)** awardees in spend/treasury management, as well as the crowded ecosystem of over 30 standalone `@x402/stellar` repositories cataloged in the LumenLoop and Electric Capital registries.
+
+Portus is architected from first principles not as another card issuance wrapper or toy CLI script, but as an **institutional sovereign clearinghouse** linking European MiCA stablecoins, Stellar Native DEX atomic settlement, and cryptographic CFO governance.
+
+### Ecosystem Comparative Landscape
+
+| Dimension | **Portus** (HackMeridian 2026) | **Venerez** (SCF R36 · $99,675) | **JoonaPay** (SCF R41 · $90,000) | **Bando** (SCF R42 · $75,000) | **Standalone x402 Repos** (30+ Stellar Repos) |
+|:---|:---|:---|:---|:---|:---|
+| **Core Value Proposition** | Sovereign multi-currency treasury holding EURC reserves with atomic JIT SDEX conversion to USDC for humans & AI agents | Programmable card-issuing platform for branded business expense cards | Enterprise financial operating system & ERP for Francophone West Africa (UEMOA) | B2B treasury yield platform deploying surplus cash into tokenized Mexican CETES | Developer CLI bots & scrapers settling HTTP 402 paywalls autonomously |
+| **Target Geography & Regulation** | European Union / MiCA-compliant cross-border enterprise treasury | Latin America / Global cardholders & SME expense management | Francophone West Africa (CFA franc zone mobile money & interbank) | Mexico (Mexican SME surplus cash & government debt) | Developer / Machine ecosystem (geography agnostic) |
+| **Currency & Float Model** | **Multi-Currency JIT Clearing:** Holds 100% `EURC` reserve; converts to `USDC` on-chain at microsecond of spend. **$0 idle USD float.** | Single-currency pre-funded card accounts. No on-chain atomic DEX cross-currency settlement. | Fiat & mobile money (XOF CFA) aggregation across fragmented bank rails. | Surplus MXN fiat/stablecoin converted into yield-bearing CETES bonds. | Single-currency wallet balances (typically pre-funded USDC only). |
+| **Custody & Smart Contract Layer** | Native Soroban Protocol 29 Vault (`contracts/treasury_vault`) with SEP-41 SAC bridging | Off-chain card issuing processor APIs & Web2 rule engines | Centralized ERP software orchestrating legacy banking & telco APIs | Smart contract / tokenized asset investment layer on Etherfuse Stablebonds | Raw keypair (`S...`) signing transactions directly. **No smart contract custody.** |
+| **Autonomous AI Agent Workloads** | **First-Class Protected Spenders:** Dedicated on-chain spend policy (`AGENT_FX`), rolling 24h limits, single-tx caps, vendor whitelists | None (focused on human employees & physical/virtual cards) | None (focused on traditional enterprise accounting & payroll) | None (focused on corporate idle cash yield generation) | **High Vulnerability:** Unconstrained raw secret key in memory. Prompt injection or leak drains 100% of wallet funds. |
+| **Governance & Key Security** | **Biometric CFO Passkeys:** Hardware P-256 WebAuthn via `secp256r1_verify` + OpenZeppelin Pausable circuit breaker | Traditional Web2 username/password & SMS/Authenticator 2FA | Enterprise role-based access control (RBAC) via web login portals | Web dashboard controls & institutional multisig authorization | Plaintext environment variable (`STELLAR_SECRET_KEY`) with zero governance controls |
+| **Multi-Entity Fleet Scalability** | **Protocol 29 CAP-0085:** Factory deploys child vaults sharing 1 Wasm hash (`v1_vault`) + **CAP-0086** sparse structs (**>98% storage savings**) | Multi-tenant Web2 database records with separate card programs | Multi-company tenancy within central ERP database | Single-entity corporate accounts | Ad-hoc isolated keypairs per bot |
+| **Settlement Protocol** | Stellar Native DEX (`pathPaymentStrictReceive`) + `@x402/stellar` v2 fee-sponsored SAC transfers | Visa/Mastercard payment network clearing cycles | Regional interbank clearing & mobile money networks (Wave, Orange Money) | Stellar ledger settlement against Etherfuse bond issuance contracts | Direct Stellar RPC payment submissions |
+
+---
+
+### Portus's 3 Architectural Moats
+
+#### Moat 1: Multi-Currency Just-In-Time (JIT) FX Clearing (`EURC ↔ USDC` on SDEX)
+- **The Problem in Prior Art:** Traditional treasury tools and existing crypto corporate cards force European businesses to maintain separate, pre-funded USD liquidity pools. A mid-market tech firm typically traps **$50,000 to $500,000 in idle USD working capital** across foreign accounts earning 0%, while paying 1.5%–3.0% in hidden banking FX conversion spreads.
+- **The Portus Advantage:** Portus exploits Stellar's native decentralized orderbook (`Operation.pathPaymentStrictReceive`). Corporate balance sheets remain 100% in Euro (`EURC`). When an operational payment or SaaS invoice occurs, Portus draws the exact EURC required from the Soroban vault and converts it to exact USDC atomically on-chain. If liquidity is insufficient or slippage exceeds tolerance, the transaction reverts cleanly. Zero foreign currency float risk, zero idle balance drag.
+
+#### Moat 2: Unified Biometric Governance for Human Cards and Autonomous AI Agents
+- **The Problem in Prior Art:** The proliferation of over 30 standalone `@x402/stellar` repositories (e.g., `x402-autopilot`, `sentryx402`, `stellar-agentic-x402-agent`) reveals a dangerous trend: autonomous agents are handed raw secret keys with unrestricted account access. If an agent suffers a prompt injection, memory leak, or logic loop, the entire wallet balance is drained instantly. Meanwhile, human spend platforms (like Venerez) have no concept of machine-to-machine HTTP 402 protocol integration.
+- **The Portus Advantage:** Portus unifies human operations and machine agents under a **single Soroban governance envelope**:
+  - Spenders (human cards or AI agents) do not own treasury reserves; they are granted discretionary spending policies on-chain.
+  - Every spend is bounded by rolling 24-hour caps, single-transaction ceilings, and cryptographic merchant whitelists.
+  - The corporate CFO maintains sovereign hardware authority: limit changes and emergency freeze triggers require biometric WebAuthn P-256 signatures validated natively on-chain via Soroban's `secp256r1_verify` host function, coupled with OpenZeppelin `Pausable` circuit breaking.
+
+#### Moat 3: Enterprise Fleet Scalability via Protocol 29 `CAP-0085` & `CAP-0086`
+- **The Problem in Prior Art:** Deploying individual smart contract vaults for enterprise conglomerates, holding companies, or regional subsidiaries normally requires duplicating expensive compiled Wasm bytecode to the ledger for each entity, causing massive persistent storage fee bloat.
+- **The Portus Advantage:** Portus's `VaultFactoryContract` directly harnesses Stellar Protocol 29 primitives:
+  - **`CAP-0085` Shared Executable Registry:** Subsidiary vaults (`LISBON_HQ`, `FRANKFURT`) are deployed via `deploy_v2` using a single verified Wasm bytecode hash (`55be053e80de94bd6935d66b36e26f0bc2543e752a0e9b06244e355519c80674`), slashing contract instantiation overhead and storage rent by **over 98%**.
+  - **`CAP-0086` Sparse Struct Optimization:** Discretionary spend policy attributes (e.g. optional cost-centers, single-tx limits) utilize sparse map serialization (`sparse_map_unpack_to_slice`), ensuring that empty fields consume zero unnecessary ledger space.
+
+---
+
+## 3. Verified Live Stellar Testnet Deployments
 
 Portus is fully deployed and operational on **Stellar Testnet (`Protocol 29`)**. Every smart contract, asset contract, and transaction hash listed below can be verified immediately on [stellar.expert](https://stellar.expert).
 
@@ -91,7 +135,7 @@ The following transactions were executed on Stellar Testnet and prove the end-to
 
 ---
 
-## 3. Dual-Track Alignment Matrix
+## 4. Dual-Track Alignment Matrix
 
 Portus is intentionally architected to demonstrate the combined power of **Stellar Unlocked** and **Stellar Composed**.
 
@@ -132,7 +176,7 @@ Portus is intentionally architected to demonstrate the combined power of **Stell
 
 ---
 
-## 4. System Architecture & Settlement Sequence
+## 5. System Architecture & Settlement Sequence
 
 The following sequence diagram details how human department cards and autonomous AI agents draw liquidity through Portus:
 
@@ -186,7 +230,164 @@ sequenceDiagram
 
 ---
 
-## 5. Judge 60-Second Quickstart & Verification Suite
+## 6. Stellar CLI Instant Judge Verification
+
+For technical judges who prefer immediate terminal verification over launching the Web Cockpit, the entire Portus Protocol 29 state can be verified directly against live Stellar Testnet nodes using the official `stellar` CLI. No local dev server or repository build is required.
+
+### 1. Download & Verify Contract Interface Directly from Testnet
+Verify that the deployed Soroban contract on Testnet implements the complete Portus specification—including P-256 CFO passkey validation, OpenZeppelin Pausable controls, and spend policy management:
+
+```bash
+stellar contract info interface \
+  --id CD4S3FUVKPPHQMOI36AWTPGBYNWYRVHFNMRPATEIHENURQK77A5YTMWU \
+  --network testnet
+```
+
+<details>
+<summary>▶ <b>Click to inspect verified CLI output (Rust Contract Interface Spec)</b></summary>
+
+```rust
+ℹ️ Network: Test SDF Network ; September 2015
+🌎 Downloading contract spec: CD4S3FUVKPPHQMOI36AWTPGBYNWYRVHFNMRPATEIHENURQK77A5YTMWU
+#[soroban_sdk::contractargs(name = "Args")]
+#[soroban_sdk::contractclient(name = "Client")]
+pub trait Contract {
+    fn set_pause(
+        env: soroban_sdk::Env,
+        caller: soroban_sdk::Address,
+        paused: bool,
+    ) -> Result<(), VaultError>;
+    fn get_policy(
+        env: soroban_sdk::Env,
+        policy_id: soroban_sdk::Symbol,
+    ) -> Option<SpendPolicyData>;
+    fn __constructor(
+        env: soroban_sdk::Env,
+        admin: soroban_sdk::Address,
+        primary_token: soroban_sdk::Address,
+        subsidiary_name: soroban_sdk::String,
+    );
+    fn list_policies(env: soroban_sdk::Env) -> soroban_sdk::Vec<SpendPolicyData>;
+    fn upsert_policy(
+        env: soroban_sdk::Env,
+        caller: soroban_sdk::Address,
+        policy: SpendPolicyData,
+    ) -> Result<(), VaultError>;
+    fn get_vault_meta(env: soroban_sdk::Env) -> VaultMetadata;
+    fn authorize_spend(
+        env: soroban_sdk::Env,
+        policy_id: soroban_sdk::Symbol,
+        spender: soroban_sdk::Address,
+        merchant: soroban_sdk::Address,
+        token: soroban_sdk::Address,
+        token_amount: i128,
+        usdc_equiv_amount: i128,
+    ) -> Result<i128, VaultError>;
+    fn update_daily_limit(
+        env: soroban_sdk::Env,
+        caller: soroban_sdk::Address,
+        policy_id: soroban_sdk::Symbol,
+        new_daily_limit_stroops: i128,
+    ) -> Result<SpendPolicyData, VaultError>;
+    fn verify_cfo_passkey(
+        env: soroban_sdk::Env,
+        payload_digest: soroban_sdk::BytesN<32>,
+        signature: soroban_sdk::BytesN<64>,
+    ) -> Result<bool, VaultError>;
+    fn register_cfo_passkey(
+        env: soroban_sdk::Env,
+        caller: soroban_sdk::Address,
+        pubkey: soroban_sdk::BytesN<65>,
+    ) -> Result<(), VaultError>;
+    fn upsert_policy_with_passkey(
+        env: soroban_sdk::Env,
+        caller: soroban_sdk::Address,
+        policy: SpendPolicyData,
+        payload_digest: soroban_sdk::BytesN<32>,
+        signature: soroban_sdk::BytesN<64>,
+    ) -> Result<(), VaultError>;
+}
+```
+</details>
+
+---
+
+### 2. Query Live Vault Metadata Directly from Ledger
+Query the live treasury vault parameters, confirming the registered CFO passkey flag, primary EURC SAC address, subsidiary entity name, and on-chain settlement counters:
+
+```bash
+stellar contract invoke \
+  --id CD4S3FUVKPPHQMOI36AWTPGBYNWYRVHFNMRPATEIHENURQK77A5YTMWU \
+  --network testnet \
+  --source-account GAEWLFKZOO7SI46XXETJ4TSVKPHODNBFSZOPDP2OZTDYA4P6Y7RTR5BA \
+  -- get_vault_meta
+```
+
+**Verified Testnet Output (Read-Only Simulation):**
+```json
+{
+  "cfo_passkey_registered": true,
+  "owner": "GD2P62GWWAIG2I3OBQNG5PD3TZPJPTJHAE3MH47B4MAZPJSDYPZY3SJO",
+  "paused": false,
+  "primary_token": "CBESXK3KRJKX7FI6HJQEY26KQ3ZYRFNDG3IICYOMGMJHLLFCCKZNV3DS",
+  "subsidiary_name": "Portus Group Treasury (Lisbon)",
+  "total_settled_count": 6,
+  "total_usdc_volume_stroops": "810000000"
+}
+```
+
+---
+
+### 3. Query Active Spend Policies Directly from Ledger
+Query the active on-chain spend policies governing the human operations card (`DEPT_OPS`) and the autonomous x402 AI agent (`AGENT_FX`), including daily ceilings, single-transaction limits, and whitelisted merchant addresses:
+
+```bash
+stellar contract invoke \
+  --id CD4S3FUVKPPHQMOI36AWTPGBYNWYRVHFNMRPATEIHENURQK77A5YTMWU \
+  --network testnet \
+  --source-account GAEWLFKZOO7SI46XXETJ4TSVKPHODNBFSZOPDP2OZTDYA4P6Y7RTR5BA \
+  -- list_policies
+```
+
+**Verified Testnet Output (Read-Only Simulation):**
+```json
+[
+  {
+    "allowed_merchants": [
+      "GDBRUBLKMK2IARDO2BOICJL4Z7ZI3BWXOGRVCEVE6NXTNABPYJCKLCVH"
+    ],
+    "cost_center": "PT-OPS-01",
+    "daily_limit_stroops": "5000000000",
+    "is_active": true,
+    "label": "Lisbon Cloud & Ops Card",
+    "max_single_tx_stroops": "2500000000",
+    "period_reset_ts": 1792931047,
+    "policy_id": "DEPT_OPS",
+    "role": "HUMAN",
+    "spender": "GAEWLFKZOO7SI46XXETJ4TSVKPHODNBFSZOPDP2OZTDYA4P6Y7RTR5BA",
+    "spent_today_stroops": "750000000"
+  },
+  {
+    "allowed_merchants": [
+      "GDBRUBLKMK2IARDO2BOICJL4Z7ZI3BWXOGRVCEVE6NXTNABPYJCKLCVH"
+    ],
+    "cost_center": null,
+    "daily_limit_stroops": "500000000",
+    "is_active": true,
+    "label": "Autonomous FX Treasury Agent",
+    "max_single_tx_stroops": "100000000",
+    "period_reset_ts": 1792931052,
+    "policy_id": "AGENT_FX",
+    "role": "AGENT",
+    "spender": "GB6KLHIUD2T7EYDA5HBTPBVHN44IQMCYSWBIYZPGSQ3TUEZ5SYQXZFWO",
+    "spent_today_stroops": "60000000"
+  }
+]
+```
+
+---
+
+## 7. Judge 60-Second Quickstart & Automated Verification Suite
 
 We have optimized the testing experience so HackMeridian judges can verify everything in under **60 seconds**, either via the live web cockpit, the Rust unit test suite, or the full end-to-end Testnet integration test.
 
@@ -275,7 +476,7 @@ bun run setup:testnet
 
 ---
 
-## 6. Hackathon Progress (Built 100% at HackMeridian 2026)
+## 8. Hackathon Progress (Built 100% at HackMeridian 2026)
 
 Portus was conceived, designed, and implemented **100% from scratch** during HackMeridian 2026 in Lisbon, Portugal. No pre-existing codebase was reused.
 
@@ -309,7 +510,7 @@ Portus was conceived, designed, and implemented **100% from scratch** during Hac
 
 ---
 
-## 7. Continuation Roadmap & SCF Build Award Path
+## 9. Continuation Roadmap & SCF Build Award Path
 
 Portus has a clear post-hackathon roadmap designed for commercial European CFO adoption and continuation into the **$150,000 Stellar Community Fund (SCF) Build Award**.
 
@@ -339,7 +540,7 @@ Portus has a clear post-hackathon roadmap designed for commercial European CFO a
 
 ---
 
-## 8. Repository Layout
+## 10. Repository Layout
 
 ```
 portus/

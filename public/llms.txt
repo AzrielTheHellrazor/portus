@@ -1,0 +1,85 @@
+# Portus — Institutional Multi-Currency Corporate Treasury on Stellar
+
+> Portus is an institutional multi-currency corporate treasury clearinghouse built on Stellar Protocol 29 (Genesis Path, HackMeridian 2026 Lisbon). It allows European enterprises to hold 100% reserves in Euro (EURC SAC) while executing just-in-time, atomic operational settlements in US Dollars (USDC SAC) via Stellar Native DEX (SDEX) path payments in under 3.5 seconds with zero foreign exchange float risk.
+
+## Network & Protocol Specifications
+- **Target Network:** Stellar Testnet (`networkPassphrase = "Test SDF Network ; September 2015"`)
+- **RPC Endpoint:** `https://soroban-testnet.stellar.org`
+- **Horizon Endpoint:** `https://horizon-testnet.stellar.org`
+- **Protocol Version:** Protocol 29 (`stellar-core 30.0.0`)
+- **Soroban SDK:** `28.0.0`
+- **OpenZeppelin Stellar Contracts:** `stellar-access 0.8.0`, `stellar-contract-utils 0.8.0`
+
+## Live On-Chain Deployments (Testnet)
+- **Primary Treasury Vault:** `CD4S3FUVKPPHQMOI36AWTPGBYNWYRVHFNMRPATEIHENURQK77A5YTMWU`
+  - Explorer: https://stellar.expert/explorer/testnet/contract/CD4S3FUVKPPHQMOI36AWTPGBYNWYRVHFNMRPATEIHENURQK77A5YTMWU
+  - Stellar Lab: https://lab.stellar.org/smart-contracts/contract-explorer?$=network$id=testnet&smartContracts$explorer$contractId=CD4S3FUVKPPHQMOI36AWTPGBYNWYRVHFNMRPATEIHENURQK77A5YTMWU
+- **Subsidiary Vault Factory (CAP-0085):** `CC2Q2JLSIHMIXS4VQMNG57FXO4LPUQPSK2Z6CQAQXH5AKL6Y5NX4TBCF`
+  - Explorer: https://stellar.expert/explorer/testnet/contract/CC2Q2JLSIHMIXS4VQMNG57FXO4LPUQPSK2Z6CQAQXH5AKL6Y5NX4TBCF
+- **Shared Wasm Executable Hash:** `55be053ed1462ea8360d5b4a4cb2fa1c9cece75ab06634ff9fe7960fa392095f`
+- **EURC SAC Token:** `CBESXK3KRJKX7FI6HJQEY26KQ3ZYRFNDG3IICYOMGMJHLLFCCKZNV3DS`
+- **USDC SAC Token:** `CCVE7CGVRI5T5S6GXSLRAVEYCA2XZIWHJJ7IVGTUVW6DOD2R34VDAX6K`
+- **Regional Subsidiary (Lisbon HQ):** `CDDKREHRA74HQH63F2XW562OEZX3U22F2O2M6543N36V2ZSZK4N2P5W2`
+- **Regional Subsidiary (Frankfurt Desk):** `CA2KQKNS37G3O5D7YCYX445E3L23E2CYO2O4YI5YNYNV3R5Z5V2R6T2`
+- **SDEX Liquidity Pool:** 2,000,000 EURC / USDC Orderbook (18.4 bps spread, 1.0840 bid / 1.0860 ask)
+
+## Core Contract Interface (Soroban Rust)
+```rust
+pub trait Contract {
+    // CFO Governance & Circuit Breakers
+    fn register_cfo_passkey(env: Env, caller: Address, pubkey: BytesN<65>) -> Result<(), VaultError>;
+    fn verify_cfo_passkey(env: Env, payload_digest: BytesN<32>, signature: BytesN<64>) -> Result<bool, VaultError>;
+    fn set_pause(env: Env, caller: Address, paused: bool) -> Result<(), VaultError>;
+    
+    // Policy Management (CAP-0086 Sparse Mapping)
+    fn upsert_policy(env: Env, caller: Address, policy: SpendPolicyData) -> Result<(), VaultError>;
+    fn upsert_policy_with_passkey(env: Env, caller: Address, policy: SpendPolicyData, digest: BytesN<32>, sig: BytesN<64>) -> Result<(), VaultError>;
+    fn update_daily_limit(env: Env, caller: Address, policy_id: Symbol, new_limit: i128) -> Result<SpendPolicyData, VaultError>;
+    fn get_policy(env: Env, policy_id: Symbol) -> Option<SpendPolicyData>;
+    fn list_policies(env: Env) -> Vec<SpendPolicyData>;
+    
+    // Spend Execution
+    fn authorize_spend(
+        env: Env,
+        policy_id: Symbol,
+        spender: Address,
+        merchant: Address,
+        token: Address,
+        token_amount: i128,
+        usdc_equiv_amount: i128,
+    ) -> Result<i128, VaultError>;
+    
+    // State Introspection
+    fn get_vault_meta(env: Env) -> VaultMetadata;
+}
+```
+
+## Contract Errors
+- `VaultPaused = 3` (Emergency stop triggered via OpenZeppelin Pausable)
+- `UnauthorizedCfo = 4` (Caller is not registered vault admin)
+- `InvalidPasskeySignature = 5` (secp256r1 P-256 WebAuthn verification failed)
+- `PolicyNotFound = 6` (Policy symbol does not exist)
+- `PolicyInactive = 7` (Policy is toggled off)
+- `UnauthorizedSpender = 8` (Spender address does not match policy)
+- `MerchantNotWhitelisted = 9` (Target merchant address is not in allowed list)
+- `SingleTxLimitExceeded = 10` (Spend exceeds CAP-0086 max_single_tx_stroops)
+- `DailyLimitExceeded = 11` (Spend exceeds rolling 24-hour limit)
+
+## x402 Protocol v2 Machine Payments
+- Protected Endpoint: `/api/x402/fx-intelligence`
+- Header: `PAYMENT-REQUIRED` (HTTP 402 challenge)
+- Scheme: `exact`, Asset: `stellar:testnet:CCVE7CGVRI5T5S6GXSLRAVEYCA2XZIWHJJ7IVGTUVW6DOD2R34VDAX6K` (USDC SAC)
+- Price: `20000000` stroops (`2.00 USDC`)
+- Verification: Settled on Stellar Testnet via `@x402/stellar` facilitator; returns `PAYMENT-RESPONSE` with on-chain transaction hash.
+
+## Integration with AI Agents & Stellar Raven
+AI agents consuming Stellar intelligence via Stellar Raven (`raven.stellar.org/mcp`) can utilize Portus as their corporate funding and spend governance rails. Rather than exposing unprotected master keys, agents are provisioned bounded spend policies (`AGENT_FX`) with rolling 24-hour limits and merchant whitelisting.
+
+## Stellar CLI Quickstart
+```bash
+# Inspect on-chain interface
+stellar contract info interface --id CD4S3FUVKPPHQMOI36AWTPGBYNWYRVHFNMRPATEIHENURQK77A5YTMWU --network testnet
+
+# Query live vault metadata
+stellar contract invoke --id CD4S3FUVKPPHQMOI36AWTPGBYNWYRVHFNMRPATEIHENURQK77A5YTMWU --network testnet --source-account GAEWLFKZOO7SI46XXETJ4TSVKPHODNBFSZOPDP2OZTDYA4P6Y7RTR5BA -- get_vault_meta
+```

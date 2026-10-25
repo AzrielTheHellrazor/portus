@@ -35,6 +35,24 @@
       "executableTag": "v1_vault",
       "wasmHash": "55be053e80de94bd6935d66b36e26f0bc2543e752a0e9b06244e355519c80674",
       "deployedLedger": 5381489
+    },
+    {
+      "subsidiaryCode": "SINGAPORE_DESK",
+      "name": "Portus APAC Pte. Ltd.",
+      "jurisdiction": "Singapore, SG",
+      "vaultAddress": "CBEZH4KWBXOXEMB4H77QJSLKAISDR4AWL6AZK5RVPUVD7YNCGVUI47W6",
+      "executableTag": "v1_vault",
+      "wasmHash": "55be053e80de94bd6935d66b36e26f0bc2543e752a0e9b06244e355519c80674",
+      "deployedLedger": 5383836
+    },
+    {
+      "subsidiaryCode": "TEST_O0113O",
+      "name": "Portus TEST_O0113O Operations",
+      "jurisdiction": "Lisbon, PT",
+      "vaultAddress": "CCUXT3PR2DCGVBFTB6HHXPWX4JFNMYZR6FOYYR2PM4OZP3K33C3LHBRD",
+      "executableTag": "v1_vault",
+      "wasmHash": "55be053e80de94bd6935d66b36e26f0bc2543e752a0e9b06244e355519c80674",
+      "deployedLedger": 5383903
     }
   ],
   "seededAt": "2026-10-25T12:24:13.383Z"
