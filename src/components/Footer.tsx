@@ -33,7 +33,7 @@ export function Footer({ state }: FooterProps) {
                     <rect x="11" y="11" width="10" height="10" rx="2" fill="#0C0F14" />
                   </svg>
                 </div>
-                <span className="text-xl font-bold tracking-tight text-white font-sans">
+                <span className="text-xl font-[480] tracking-tight text-white font-sans">
                   Portus Treasury
                 </span>
               </div>
@@ -51,7 +51,7 @@ export function Footer({ state }: FooterProps) {
 
           {/* Col 2: Contract Hashes & Telemetry */}
           <div className="md:col-span-4 font-mono text-xs">
-            <span className="text-[11px] uppercase tracking-wider text-[#D4A24C] font-semibold block mb-3">
+            <span className="text-[11px] uppercase tracking-wider text-[#D4A24C] font-[500] block mb-3">
               On-Chain Contract Manifest
             </span>
             <div className="space-y-3 text-white/90">
@@ -74,7 +74,7 @@ export function Footer({ state }: FooterProps) {
                     href={stellarLabContractUrl(vaultId)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center min-h-8 py-1.5 px-2 text-[#D4A24C] hover:underline font-semibold"
+                    className="inline-flex items-center min-h-8 py-1.5 px-2 text-[#D4A24C] hover:underline font-[420]"
                     title="Inspect in SDF Stellar Lab"
                   >
                     Lab ↗
@@ -101,7 +101,7 @@ export function Footer({ state }: FooterProps) {
                     href={stellarLabContractUrl(factoryId)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center min-h-8 py-1.5 px-2 text-[#D4A24C] hover:underline font-semibold"
+                    className="inline-flex items-center min-h-8 py-1.5 px-2 text-[#D4A24C] hover:underline font-[420]"
                     title="Inspect in SDF Stellar Lab"
                   >
                     Lab ↗
@@ -119,7 +119,7 @@ export function Footer({ state }: FooterProps) {
           {/* Col 3: Navigation & Spec */}
           <div className="md:col-span-3 text-sm flex flex-col justify-between">
             <div>
-              <span className="text-[11px] font-mono uppercase tracking-wider text-[#D4A24C] font-semibold block mb-3">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-[#D4A24C] font-[500] block mb-3">
                 Protocol Documentation
               </span>
               <ul className="space-y-1 font-medium text-white/90">

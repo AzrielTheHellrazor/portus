@@ -45,7 +45,7 @@ export function Header({ state }: HeaderProps) {
               </svg>
             </div>
             <div className="flex flex-col">
-              <span className="font-semibold text-lg tracking-tight text-[#0C0F14] leading-none">
+              <span className="font-[480] text-lg tracking-tight text-[#0C0F14] leading-none">
                 Portus
               </span>
               <span className="text-[10px] uppercase font-mono tracking-wider text-[#4A5260] mt-0.5">

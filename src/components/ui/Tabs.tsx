@@ -37,7 +37,7 @@ export function Tabs({
             aria-selected={isSelected}
             tabIndex={isSelected ? 0 : -1}
             onClick={() => onTabChange(tab.id)}
-            className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold font-mono transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A24C] ${
+            className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-[420] font-mono transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A24C] ${
               isSelected
                 ? "bg-[#D4A24C] text-[#0C0F14] shadow-sm"
                 : "text-white/75 hover:text-white hover:bg-white/5"

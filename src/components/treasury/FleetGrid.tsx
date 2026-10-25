@@ -165,10 +165,10 @@ export function FleetGrid({
               <span className="w-1.5 h-1.5 rounded-full bg-[#0B3B2C]" />
               ACT IV · SUBSIDIARY ARCHITECTURE
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0C0F14] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-[480] text-[#0C0F14] tracking-tight">
               CAP-0085 Subsidiary Treasury Fleet
             </h2>
-            <p className="text-sm text-[#4A5260] mt-1 max-w-2xl leading-relaxed">
+            <p className="text-sm text-[#4A5260] mt-1 max-w-2xl leading-relaxed font-[380]">
               European multinationals scale regional operating entities without bytecode bloat.
               The Portus Factory deploys regional vaults that reference a single shared executable Wasm tag
               (<code className="text-[#0C0F14] font-mono">v1_vault</code>), reducing state storage fees by over 98%.
@@ -177,7 +177,7 @@ export function FleetGrid({
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
             <div className="text-xs font-mono text-[#0B3B2C] hidden lg:block">
-              <span className="font-semibold">Shared Bytecode Hash:</span>{" "}
+              <span className="font-[420]">Shared Bytecode Hash:</span>{" "}
               <span className="text-[#4A5260]">{wasmHash.slice(0, 14)}...</span>
             </div>
 
@@ -185,7 +185,7 @@ export function FleetGrid({
               type="button"
               onClick={handleOpenModal}
               data-magnetic="0.2"
-              className="inline-flex items-center gap-2 min-h-8 py-2.5 px-4 rounded-md bg-[#0B3B2C] hover:bg-[#12543F] text-white text-xs font-semibold tracking-wide shadow-xs transition-all focus-visible:outline-2 focus-visible:outline-[#0B3B2C] active:scale-[0.98]"
+              className="inline-flex items-center gap-2 min-h-8 py-2.5 px-4 rounded-md bg-[#0B3B2C] hover:bg-[#12543F] text-white text-xs font-[420] tracking-wide shadow-xs transition-all focus-visible:outline-2 focus-visible:outline-[#0B3B2C] active:scale-[0.98]"
             >
               <svg
                 width="14"
@@ -213,7 +213,7 @@ export function FleetGrid({
             return (
               <div
                 key={vault.subsidiaryCode}
-                className={`bg-white border rounded-2xl p-6 shadow-xs flex flex-col justify-between transition-all ${
+                className={`bg-white border rounded-[var(--radius-card)] p-6 shadow-xs flex flex-col justify-between transition-all ${
                   isNewlyDeployed
                     ? "border-[#0B3B2C] ring-2 ring-[#0B3B2C]/20 shadow-md"
                     : "border-[rgba(12,15,20,0.11)]"
@@ -222,10 +222,10 @@ export function FleetGrid({
                 <div>
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <span className="text-[11px] font-mono uppercase tracking-wider text-[#785316] font-semibold">
+                      <span className="text-[11px] font-mono uppercase tracking-wider text-[#785316] font-[500]">
                         {vault.subsidiaryCode} · {vault.jurisdiction}
                       </span>
-                      <h3 className="text-xl font-bold text-[#0C0F14] tracking-tight mt-0.5">
+                      <h3 className="text-xl font-[480] text-[#0C0F14] tracking-tight mt-0.5">
                         {vault.name}
                       </h3>
                     </div>
@@ -248,7 +248,7 @@ export function FleetGrid({
                           href={stellarExpertContractUrl(vault.vaultAddress)}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[#0B3B2C] hover:text-[#12543F] font-semibold underline underline-offset-4 truncate max-w-[140px] inline-flex items-center min-h-8 py-1.5 px-2 rounded focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
+                          className="text-[#0B3B2C] hover:text-[#12543F] font-[420] underline underline-offset-4 truncate max-w-[140px] inline-flex items-center min-h-8 py-1.5 px-2 rounded focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
                           title={vault.vaultAddress}
                         >
                           {vault.vaultAddress.slice(0, 8)}...{vault.vaultAddress.slice(-4)}
@@ -258,7 +258,7 @@ export function FleetGrid({
                           href={stellarLabContractUrl(vault.vaultAddress)}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[#785316] hover:text-[#0C0F14] font-semibold bg-[#785316]/10 hover:bg-[#785316]/20 inline-flex items-center min-h-8 py-1.5 px-2 rounded transition-all focus-visible:outline-2 focus-visible:outline-[#785316]"
+                          className="text-[#785316] hover:text-[#0C0F14] font-[420] bg-[#785316]/10 hover:bg-[#785316]/20 inline-flex items-center min-h-8 py-1.5 px-2 rounded transition-all focus-visible:outline-2 focus-visible:outline-[#785316]"
                         >
                           <span>Lab</span>
                           <span aria-hidden="true" className="ml-1">↗</span>
@@ -268,7 +268,7 @@ export function FleetGrid({
 
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-[rgba(12,15,20,0.06)]">
                       <span className="text-[#646D7C]">CAP-0085 Executable Tag</span>
-                      <span className="text-[#0C0F14] font-semibold">
+                      <span className="text-[#0C0F14] font-[420]">
                         {vault.executableTag} (Shared Wasm)
                       </span>
                     </div>
@@ -303,28 +303,28 @@ export function FleetGrid({
         {/* Technical Value Callout Strip */}
         <div className="bg-[#FFFFFF] border border-[rgba(12,15,20,0.11)] rounded-xl p-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
           <div>
-            <h4 className="font-bold text-[#0C0F14] font-sans text-sm mb-1">
+            <h4 className="font-[480] text-[#0C0F14] font-sans text-sm mb-1">
               98% State Storage Reduction
             </h4>
-            <p className="text-[#4A5260] leading-relaxed">
+            <p className="text-[#4A5260] leading-relaxed font-[380]">
               Standard contract deployment duplicates full Wasm binaries for every entity.
               CAP-0085 stores bytecode once on Stellar; subsidiaries only instantiate persistent state keys.
             </p>
           </div>
           <div>
-            <h4 className="font-bold text-[#0C0F14] font-sans text-sm mb-1">
+            <h4 className="font-[480] text-[#0C0F14] font-sans text-sm mb-1">
               Audited Single-Point Upgrades
             </h4>
-            <p className="text-[#4A5260] leading-relaxed">
+            <p className="text-[#4A5260] leading-relaxed font-[380]">
               When protocol audits yield version improvements, the factory updates the executable pointer tag.
               Subsidiaries adopt verified security patches without coordinating 50 individual migrations.
             </p>
           </div>
           <div>
-            <h4 className="font-bold text-[#0C0F14] font-sans text-sm mb-1">
+            <h4 className="font-[480] text-[#0C0F14] font-sans text-sm mb-1">
               Regional Autonomy & Ringfencing
             </h4>
-            <p className="text-[#4A5260] leading-relaxed">
+            <p className="text-[#4A5260] leading-relaxed font-[380]">
               Each subsidiary maintains isolated spend policies, separate merchant whitelists, and local currency
               tax attribution while sharing audited group infrastructure.
             </p>
@@ -341,18 +341,18 @@ export function FleetGrid({
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs overflow-y-auto"
         >
           {/* Modal Card */}
-          <div className="relative w-full max-w-xl bg-white border border-[rgba(12,15,20,0.16)] rounded-2xl shadow-2xl p-6 sm:p-8 text-[#0C0F14] my-8 max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-xl bg-white border border-[rgba(12,15,20,0.16)] rounded-[var(--radius-card)] shadow-2xl p-6 sm:p-8 text-[#0C0F14] my-8 max-h-[90vh] overflow-y-auto">
             {/* Modal Header */}
             <div className="flex items-start justify-between pb-4 border-b border-[rgba(12,15,20,0.11)]">
               <div>
-                <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[#0B3B2C]/10 text-[#0B3B2C] text-[11px] font-mono font-semibold uppercase tracking-wider mb-1">
+                <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[#0B3B2C]/10 text-[#0B3B2C] text-[11px] font-mono font-[500] uppercase tracking-wider mb-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#0B3B2C]" />
                   CAP-0085 FACTORY CONTRACT
                 </div>
-                <h3 id="modal-headline" className="text-xl font-bold tracking-tight text-[#0C0F14]">
+                <h3 id="modal-headline" className="text-xl font-[480] tracking-tight text-[#0C0F14]">
                   Deploy Regional Subsidiary Vault
                 </h3>
-                <p className="text-xs text-[#4A5260] mt-0.5">
+                <p className="text-xs text-[#4A5260] mt-0.5 font-[380]">
                   Instantiate a new subsidiary vault referencing shared executable tag{" "}
                   <code className="text-[#0C0F14] font-mono font-semibold">v1_vault</code> on Stellar Testnet.
                 </p>
@@ -544,7 +544,7 @@ export function FleetGrid({
                   type="button"
                   onClick={handleCloseModal}
                   disabled={isDeploying}
-                  className="min-h-8 py-2 px-4 rounded-md text-xs font-semibold text-[#4A5260] hover:text-[#0C0F14] hover:bg-black/5 transition-colors focus-visible:outline-2 focus-visible:outline-[#0B3B2C] disabled:opacity-50"
+                  className="min-h-8 py-2 px-4 rounded-md text-xs font-[420] text-[#4A5260] hover:text-[#0C0F14] hover:bg-black/5 transition-colors focus-visible:outline-2 focus-visible:outline-[#0B3B2C] disabled:opacity-50"
                 >
                   {deployResult ? "Close" : "Cancel"}
                 </button>
@@ -553,7 +553,7 @@ export function FleetGrid({
                   type="submit"
                   disabled={isDeploying}
                   data-magnetic="0.2"
-                  className="inline-flex items-center justify-center gap-2 min-h-8 py-2.5 px-5 rounded-md bg-[#0B3B2C] hover:bg-[#12543F] text-white text-xs font-semibold tracking-wide shadow-xs transition-all focus-visible:outline-2 focus-visible:outline-[#0B3B2C] disabled:opacity-60 active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2 min-h-8 py-2.5 px-5 rounded-md bg-[#0B3B2C] hover:bg-[#12543F] text-white text-xs font-[420] tracking-wide shadow-xs transition-all focus-visible:outline-2 focus-visible:outline-[#0B3B2C] disabled:opacity-60 active:scale-[0.98]"
                 >
                   {isDeploying ? (
                     <>

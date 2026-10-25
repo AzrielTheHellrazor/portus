@@ -223,10 +223,10 @@ export function TreasuryCockpit({
               <span className="w-1.5 h-1.5 rounded-full bg-[#0B3B2C]" />
               ACT II · LIVE ON-CHAIN COCKPIT
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0C0F14] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-[480] text-[#0C0F14] tracking-tight">
               Stellar Testnet Treasury Vault Cockpit
             </h2>
-            <p className="text-sm text-[#4A5260] mt-1 max-w-xl">
+            <p className="text-sm text-[#4A5260] mt-1 max-w-xl font-[380]">
               Inspect live Euro reserves, execute instant JIT dollar card settlements, test policy rejections,
               and govern daily caps via hardware secp256r1 CFO Passkeys.
             </p>
@@ -249,7 +249,7 @@ export function TreasuryCockpit({
               href={stellarLabContractUrl(state.vaultContractId)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 min-h-8 py-1.5 px-2.5 rounded-md text-xs font-mono font-semibold text-[#785316] bg-[#785316]/10 hover:bg-[#785316]/20 transition-all focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
+              className="inline-flex items-center gap-1.5 min-h-8 py-1.5 px-2.5 rounded-md text-xs font-mono font-[420] text-[#785316] bg-[#785316]/10 hover:bg-[#785316]/20 transition-all focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
             >
               <span>Inspect Vault in Stellar Lab</span>
               <span aria-hidden="true">↗</span>
@@ -318,7 +318,7 @@ export function TreasuryCockpit({
         {/* 2. MACHINED DOUBLE-BEZEL VIRTUAL CORPORATE CARDS (2 Cards Side-by-Side) */}
         <div className="mb-12">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-bold text-[#0C0F14] tracking-tight">
+            <h3 className="text-lg font-[480] text-[#0C0F14] tracking-tight">
               Machined Virtual Corporate Cards
             </h3>
             <span className="text-xs font-mono text-[#4A5260]">
@@ -342,10 +342,10 @@ export function TreasuryCockpit({
                 <div>
                   <div className="flex items-start justify-between">
                     <div>
-                      <span className="text-[10px] uppercase font-mono tracking-widest text-[#D4A24C] block font-semibold">
+                      <span className="text-[10px] uppercase font-mono tracking-widest text-[#D4A24C] block font-[500]">
                         Portus Institutional Virtual Card
                       </span>
-                      <h4 className="text-lg font-bold text-white tracking-tight mt-0.5">
+                      <h4 className="text-lg font-[480] text-white tracking-tight mt-0.5">
                         {opsPolicy.label}
                       </h4>
                     </div>
@@ -427,10 +427,10 @@ export function TreasuryCockpit({
                 <div>
                   <div className="flex items-start justify-between">
                     <div>
-                      <span className="text-[10px] uppercase font-mono tracking-widest text-[#34D399] block font-semibold">
+                      <span className="text-[10px] uppercase font-mono tracking-widest text-[#34D399] block font-[500]">
                         Autonomous x402 Agent Card
                       </span>
-                      <h4 className="text-lg font-bold text-white tracking-tight mt-0.5">
+                      <h4 className="text-lg font-[480] text-white tracking-tight mt-0.5">
                         {agentPolicy.label}
                       </h4>
                     </div>
@@ -487,13 +487,13 @@ export function TreasuryCockpit({
         </div>
 
         {/* 3. 3-SCENARIO LIVE ON-CHAIN EXECUTION DECK (1-Click Judge Testing!) */}
-        <div className="bg-white border border-[rgba(12,15,20,0.11)] rounded-2xl p-6 sm:p-8 shadow-xs mb-10">
+        <div className="bg-white border border-[rgba(12,15,20,0.11)] rounded-[var(--radius-card)] p-6 sm:p-8 shadow-xs mb-10">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-[rgba(12,15,20,0.08)]">
             <div>
-              <span className="text-xs font-mono uppercase tracking-wider text-[#785316] font-semibold block">
+              <span className="text-xs font-mono uppercase tracking-wider text-[#785316] font-[500] block">
                 1-Click Judge Test Suite
               </span>
-              <h3 className="text-xl font-bold text-[#0C0F14] tracking-tight mt-0.5">
+              <h3 className="text-xl font-[480] text-[#0C0F14] tracking-tight mt-0.5">
                 On-Chain Scenario Execution Deck
               </h3>
             </div>
@@ -507,17 +507,17 @@ export function TreasuryCockpit({
             <div className="border border-[rgba(12,15,20,0.12)] rounded-xl p-5 flex flex-col justify-between hover:border-[#0B3B2C] transition-colors">
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-mono uppercase text-[#0B3B2C] font-semibold">
+                  <span className="text-xs font-mono uppercase text-[#0B3B2C] font-[500]">
                     Scenario 1 · Human Card
                   </span>
                   <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#0B3B2C]/10 text-[#0B3B2C]">
                     DEPT_OPS
                   </span>
                 </div>
-                <h4 className="text-base font-bold text-[#0C0F14] mb-2">
+                <h4 className="text-base font-[480] text-[#0C0F14] mb-2">
                   Pay US Cloud Invoice ($125.00 USDC)
                 </h4>
-                <p className="text-xs text-[#4A5260] leading-relaxed mb-4">
+                <p className="text-xs text-[#4A5260] leading-relaxed mb-4 font-[380]">
                   Simulates Operations manager paying AWS invoice. Checks policy on-chain, debits Euro reserve,
                   and executes Native SDEX <code className="text-[#0C0F14]">pathPaymentStrictReceive</code>.
                 </p>
@@ -526,7 +526,7 @@ export function TreasuryCockpit({
               <button
                 onClick={() => handleExecuteScenario("DEPARTMENT_FX_PAYOUT")}
                 disabled={isExecuting || state.paused}
-                className="w-full inline-flex items-center justify-center gap-2 min-h-8 py-2.5 px-4 rounded-md text-xs font-semibold text-white bg-[#0B3B2C] hover:bg-[#12543F] disabled:opacity-50 active:scale-[0.98] transition-all focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
+                className="w-full inline-flex items-center justify-center gap-2 min-h-8 py-2.5 px-4 rounded-md text-xs font-[420] text-white bg-[#0B3B2C] hover:bg-[#12543F] disabled:opacity-50 active:scale-[0.98] transition-all focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
               >
                 {isExecuting && activeScenario === "DEPARTMENT_FX_PAYOUT" ? (
                   <span>Executing On-Chain...</span>
@@ -543,17 +543,17 @@ export function TreasuryCockpit({
             <div className="border border-[rgba(12,15,20,0.12)] rounded-xl p-5 flex flex-col justify-between hover:border-[#065F46] transition-colors">
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-mono uppercase text-[#065F46] font-semibold">
+                  <span className="text-xs font-mono uppercase text-[#065F46] font-[500]">
                     Scenario 2 · Machine Card
                   </span>
                   <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#065F46]/10 text-[#065F46]">
                     AGENT_X402
                   </span>
                 </div>
-                <h4 className="text-base font-bold text-[#0C0F14] mb-2">
+                <h4 className="text-base font-[480] text-[#0C0F14] mb-2">
                   Autonomous FX Desk Agent ($2.00 USDC)
                 </h4>
-                <p className="text-xs text-[#4A5260] leading-relaxed mb-4">
+                <p className="text-xs text-[#4A5260] leading-relaxed mb-4 font-[380]">
                   Autonomous AI bot encounters HTTP 402 paywall. Vault JIT releases Euro reserve, converts on SDEX,
                   and settles via <code className="text-[#0C0F14]">@x402/stellar</code> to unlock live macro feed.
                 </p>
@@ -562,7 +562,7 @@ export function TreasuryCockpit({
               <button
                 onClick={() => handleExecuteScenario("AGENT_X402_SETTLEMENT")}
                 disabled={isExecuting || state.paused}
-                className="w-full inline-flex items-center justify-center gap-2 min-h-8 py-2.5 px-4 rounded-md text-xs font-semibold text-white bg-[#065F46] hover:bg-[#047857] disabled:opacity-50 active:scale-[0.98] transition-all focus-visible:outline-2 focus-visible:outline-[#065F46]"
+                className="w-full inline-flex items-center justify-center gap-2 min-h-8 py-2.5 px-4 rounded-md text-xs font-[420] text-white bg-[#065F46] hover:bg-[#047857] disabled:opacity-50 active:scale-[0.98] transition-all focus-visible:outline-2 focus-visible:outline-[#065F46]"
               >
                 {isExecuting && activeScenario === "AGENT_X402_SETTLEMENT" ? (
                   <span>Settling x402 Micropayment...</span>
@@ -579,17 +579,17 @@ export function TreasuryCockpit({
             <div className="border border-[#B91C1C]/30 bg-[#B91C1C]/[0.02] rounded-xl p-5 flex flex-col justify-between hover:border-[#B91C1C] transition-colors">
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-mono uppercase text-[#B91C1C] font-semibold">
+                  <span className="text-xs font-mono uppercase text-[#B91C1C] font-[500]">
                     Scenario 3 · Policy Revert Proof
                   </span>
                   <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#B91C1C]/10 text-[#B91C1C]">
                     REVERT_PROOF
                   </span>
                 </div>
-                <h4 className="text-base font-bold text-[#0C0F14] mb-2">
+                <h4 className="text-base font-[480] text-[#0C0F14] mb-2">
                   Attempt Unauthorized Spend ($750)
                 </h4>
-                <p className="text-xs text-[#4A5260] leading-relaxed mb-3">
+                <p className="text-xs text-[#4A5260] leading-relaxed mb-3 font-[380]">
                   Proves on-chain Soroban VM deterministic revert. No Euro reserves are lost when a rogue actor spends outside policy.
                 </p>
 
@@ -621,7 +621,7 @@ export function TreasuryCockpit({
               <button
                 onClick={() => handleExecuteScenario("ROGUE_BREACH_BLOCKED", breachMode)}
                 disabled={isExecuting || state.paused}
-                className="w-full inline-flex items-center justify-center gap-2 min-h-8 py-2.5 px-4 rounded-md text-xs font-semibold text-white bg-[#B91C1C] hover:bg-[#991B1B] disabled:opacity-50 active:scale-[0.98] transition-all focus-visible:outline-2 focus-visible:outline-[#B91C1C]"
+                className="w-full inline-flex items-center justify-center gap-2 min-h-8 py-2.5 px-4 rounded-md text-xs font-[420] text-white bg-[#B91C1C] hover:bg-[#991B1B] disabled:opacity-50 active:scale-[0.98] transition-all focus-visible:outline-2 focus-visible:outline-[#B91C1C]"
               >
                 {isExecuting && activeScenario === "ROGUE_BREACH_BLOCKED" ? (
                   <span>Asserting VM Revert...</span>
@@ -640,16 +640,16 @@ export function TreasuryCockpit({
         <WalletConnectWidget vaultContractId={state.vaultContractId} />
 
         {/* 5. CFO GOVERNANCE BAR (secp256r1 Passkey & OpenZeppelin Pausable) */}
-        <div className="bg-[#0C0F14] text-[#F6F5F1] rounded-2xl p-6 sm:p-8 shadow-md mb-10 border border-white/10">
+        <div className="bg-[#0C0F14] text-[#F6F5F1] rounded-[var(--radius-card)] p-6 sm:p-8 shadow-md mb-10 border border-white/10">
           <div className="flex flex-col md:flex-row md:items-center justify-between pb-6 mb-6 border-b border-white/10 gap-4">
             <div>
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-sm bg-[#D4A24C]" aria-hidden="true" />
-                <span className="text-xs font-mono uppercase tracking-wider text-[#D4A24C] font-semibold">
+                <span className="text-xs font-mono uppercase tracking-wider text-[#D4A24C] font-[500]">
                   CFO Cryptographic Governance Bar
                 </span>
               </div>
-              <h3 className="text-lg font-bold text-white tracking-tight mt-1">
+              <h3 className="text-lg font-[480] text-white tracking-tight mt-1">
                 Hardware secp256r1 Passkey & OpenZeppelin Pausable
               </h3>
             </div>
@@ -738,7 +738,7 @@ export function TreasuryCockpit({
 
         {/* 6. LIVE SETTLEMENT RECEIPT & AUDIT TRAIL LEDGER */}
         {latestReceipt && (
-          <div className="bg-white border border-[rgba(12,15,20,0.11)] rounded-2xl p-6 sm:p-8 shadow-xs">
+          <div className="bg-white border border-[rgba(12,15,20,0.11)] rounded-[var(--radius-card)] p-6 sm:p-8 shadow-xs">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-4 border-b border-[rgba(12,15,20,0.08)]">
               <div className="flex items-center gap-3">
                 <span
@@ -747,7 +747,7 @@ export function TreasuryCockpit({
                   }`}
                   aria-hidden="true"
                 />
-                <h4 className="text-base font-bold text-[#0C0F14]">
+                <h4 className="text-base font-[480] text-[#0C0F14]">
                   Latest On-Chain Settlement Receipt ({latestReceipt.id})
                 </h4>
               </div>
@@ -791,13 +791,13 @@ export function TreasuryCockpit({
             {/* If Blocked, Show Error Code & Revert Proof */}
             {latestReceipt.status === "BLOCKED_BY_POLICY" && (
               <div className="p-4 rounded-xl bg-[#B91C1C]/10 border border-[#B91C1C]/30 text-xs font-mono mb-4 text-[#B91C1C]">
-                <div className="font-bold flex items-center gap-2 mb-1">
+                <div className="font-[480] flex items-center gap-2 mb-1">
                   <span>Deterministic Soroban VM Revert:</span>
                   <span className="bg-[#B91C1C] text-white px-2 py-0.5 rounded text-[10px]">
                     {latestReceipt.errorCode || "Error #9: MerchantNotWhitelisted"}
                   </span>
                 </div>
-                <p className="text-[#4A5260] font-sans">
+                <p className="text-[#4A5260] font-sans font-[380]">
                   {latestReceipt.errorDetail ||
                     "Transaction rejected on-chain prior to DEX invocation. Zero Euro reserve balance was debited."}
                 </p>
@@ -816,7 +816,7 @@ export function TreasuryCockpit({
                     href={latestReceipt.explorerUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 min-h-8 py-1.5 px-2.5 rounded text-[#0B3B2C] hover:text-[#12543F] font-semibold underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
+                    className="inline-flex items-center gap-1.5 min-h-8 py-1.5 px-2.5 rounded text-[#0B3B2C] hover:text-[#12543F] font-[420] underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
                   >
                     <span>Verify on Stellar Expert</span>
                     <span aria-hidden="true">↗</span>
@@ -831,7 +831,7 @@ export function TreasuryCockpit({
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 min-h-8 py-1.5 px-2.5 rounded text-[#785316] hover:text-[#0C0F14] font-semibold underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-[#785316]"
+                  className="inline-flex items-center gap-1.5 min-h-8 py-1.5 px-2.5 rounded text-[#785316] hover:text-[#0C0F14] font-[420] underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-[#785316]"
                 >
                   <span>Inspect in Stellar Lab</span>
                   <span aria-hidden="true">↗</span>

@@ -75,7 +75,7 @@ export default function PitchDeckPage() {
       content: (
         <div className="space-y-6">
           {/* Main Visual Card */}
-          <div className="bg-[#12161F] border border-white/12 rounded-2xl p-6 sm:p-8 text-[#F6F5F1] shadow-2xl relative overflow-hidden">
+          <div className="bg-[#12161F] border border-white/12 rounded-[var(--radius-card)] p-6 sm:p-8 text-[#F6F5F1] shadow-2xl relative overflow-hidden">
             {/* Top decorative badge row */}
             <div className="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-white/10 text-xs font-mono">
               <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#0B3B2C] text-[#F6F5F1] font-semibold">
@@ -90,31 +90,31 @@ export default function PitchDeckPage() {
             {/* Core Value Pillars Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
               <div className="bg-[#0C0F14] border border-white/10 p-5 rounded-xl">
-                <div className="text-[11px] font-mono uppercase tracking-wider text-[#D4A24C] font-semibold mb-1">
+                <div className="text-[11px] font-mono uppercase tracking-wider text-[#D4A24C] font-[500] mb-1">
                   Pillar 01 · Custody
                 </div>
-                <div className="text-xl font-bold text-white mb-2">100% Euro Reserve</div>
-                <p className="text-xs text-white/70 leading-relaxed">
+                <div className="text-xl font-[480] text-white mb-2">100% Euro Reserve</div>
+                <p className="text-xs text-white/70 leading-relaxed font-[380]">
                   Enterprises maintain balance sheets entirely in Soroban-guarded <code className="text-[#D4A24C]">EURC</code> SAC contracts under European MiCA regulatory clarity.
                 </p>
               </div>
 
               <div className="bg-[#0C0F14] border border-white/10 p-5 rounded-xl">
-                <div className="text-[11px] font-mono uppercase tracking-wider text-[#D4A24C] font-semibold mb-1">
+                <div className="text-[11px] font-mono uppercase tracking-wider text-[#D4A24C] font-[500] mb-1">
                   Pillar 02 · Atomic FX
                 </div>
-                <div className="text-xl font-bold text-white mb-2">Zero Idle USD Float</div>
-                <p className="text-xs text-white/70 leading-relaxed">
+                <div className="text-xl font-[480] text-white mb-2">Zero Idle USD Float</div>
+                <p className="text-xs text-white/70 leading-relaxed font-[380]">
                   When employee cards or AI agents spend USD, Stellar Native SDEX executes <code className="text-[#D4A24C]">pathPaymentStrictReceive</code> just-in-time in &lt; 3.5s.
                 </p>
               </div>
 
               <div className="bg-[#0C0F14] border border-white/10 p-5 rounded-xl">
-                <div className="text-[11px] font-mono uppercase tracking-wider text-[#D4A24C] font-semibold mb-1">
+                <div className="text-[11px] font-mono uppercase tracking-wider text-[#D4A24C] font-[500] mb-1">
                   Pillar 03 · Governance
                 </div>
-                <div className="text-xl font-bold text-white mb-2">Hardware Passkeys</div>
-                <p className="text-xs text-white/70 leading-relaxed">
+                <div className="text-xl font-[480] text-white mb-2">Hardware Passkeys</div>
+                <p className="text-xs text-white/70 leading-relaxed font-[380]">
                   CFO governance via hardware WebAuthn <code className="text-[#D4A24C]">secp256r1</code> P-256 signatures validated on-chain with OpenZeppelin Pausable circuit breakers.
                 </p>
               </div>
@@ -150,14 +150,14 @@ export default function PitchDeckPage() {
         <div className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Pain 1 */}
-            <div className="bg-[#12161F] border border-white/10 rounded-2xl p-6 text-[#F6F5F1] shadow-lg flex flex-col justify-between">
+            <div className="bg-[#12161F] border border-white/10 rounded-[var(--radius-card)] p-6 text-[#F6F5F1] shadow-lg flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between text-xs font-mono text-[#B91C1C] mb-2 font-semibold">
+                <div className="flex items-center justify-between text-xs font-mono text-[#B91C1C] mb-2 font-[500]">
                   <span>FRICTION 01</span>
                   <span>IDLE FLOAT</span>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">Trapped Working Capital</h3>
-                <p className="text-xs text-white/70 leading-relaxed">
+                <h3 className="text-lg font-[480] text-white mb-2">Trapped Working Capital</h3>
+                <p className="text-xs text-white/70 leading-relaxed font-[380]">
                   Enterprises pre-fund $100k to $500k in foreign USD bank accounts earning 0% yield across fragmented regional banking silos just to cover recurring overseas cloud invoices.
                 </p>
               </div>
@@ -167,14 +167,14 @@ export default function PitchDeckPage() {
             </div>
 
             {/* Pain 2 */}
-            <div className="bg-[#12161F] border border-white/10 rounded-2xl p-6 text-[#F6F5F1] shadow-lg flex flex-col justify-between">
+            <div className="bg-[#12161F] border border-white/10 rounded-[var(--radius-card)] p-6 text-[#F6F5F1] shadow-lg flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between text-xs font-mono text-[#B91C1C] mb-2 font-semibold">
+                <div className="flex items-center justify-between text-xs font-mono text-[#B91C1C] mb-2 font-[500]">
                   <span>FRICTION 02</span>
                   <span>FX TAX & DELAY</span>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">2-3% Spreads & 48h Wires</h3>
-                <p className="text-xs text-white/70 leading-relaxed">
+                <h3 className="text-lg font-[480] text-white mb-2">2-3% Spreads & 48h Wires</h3>
+                <p className="text-xs text-white/70 leading-relaxed font-[380]">
                   Traditional correspondent banking extracts 150-300 bps on every cross-currency wire, compounded by 2-day SWIFT settlement lags and manual finance operations reconciliation.
                 </p>
               </div>
@@ -184,14 +184,14 @@ export default function PitchDeckPage() {
             </div>
 
             {/* Pain 3 */}
-            <div className="bg-[#12161F] border border-white/10 rounded-2xl p-6 text-[#F6F5F1] shadow-lg flex flex-col justify-between">
+            <div className="bg-[#12161F] border border-white/10 rounded-[var(--radius-card)] p-6 text-[#F6F5F1] shadow-lg flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between text-xs font-mono text-[#B91C1C] mb-2 font-semibold">
+                <div className="flex items-center justify-between text-xs font-mono text-[#B91C1C] mb-2 font-[500]">
                   <span>FRICTION 03</span>
                   <span>AI AGENT RISK</span>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">The Autonomous Agent Dilemma</h3>
-                <p className="text-xs text-white/70 leading-relaxed">
+                <h3 className="text-lg font-[480] text-white mb-2">The Autonomous Agent Dilemma</h3>
+                <p className="text-xs text-white/70 leading-relaxed font-[380]">
                   Enterprises deploying autonomous AI agents cannot safely give them corporate credit cards or unrestricted bank API access without catastrophic overdraft and balance leakage risks.
                 </p>
               </div>
@@ -229,12 +229,12 @@ export default function PitchDeckPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="bg-[#12161F] border border-white/10 p-5 rounded-xl text-[#F6F5F1] flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between text-[11px] font-mono text-[#D4A24C] mb-2">
+                <div className="flex items-center justify-between text-[11px] font-mono text-[#D4A24C] mb-2 font-[500]">
                   <span>STEP 01</span>
                   <span>CLIENT INITIATION</span>
                 </div>
-                <h4 className="font-bold text-sm text-white mb-1.5">Spend Demand</h4>
-                <p className="text-xs text-white/70 leading-relaxed">
+                <h4 className="font-[480] text-sm text-white mb-1.5">Spend Demand</h4>
+                <p className="text-xs text-white/70 leading-relaxed font-[380]">
                   Employee card pays $125 AWS invoice or autonomous bot requests $2 paywalled macro intelligence feed.
                 </p>
               </div>
@@ -245,12 +245,12 @@ export default function PitchDeckPage() {
 
             <div className="bg-[#0C0F14] border border-[#D4A24C]/40 p-5 rounded-xl text-[#F6F5F1] flex flex-col justify-between shadow-md">
               <div>
-                <div className="flex items-center justify-between text-[11px] font-mono text-[#D4A24C] mb-2">
+                <div className="flex items-center justify-between text-[11px] font-mono text-[#D4A24C] mb-2 font-[500]">
                   <span>STEP 02</span>
                   <span>SOROBAN VM</span>
                 </div>
-                <h4 className="font-bold text-sm text-white mb-1.5">CAP-0086 Policy Guard</h4>
-                <p className="text-xs text-white/70 leading-relaxed">
+                <h4 className="font-[480] text-sm text-white mb-1.5">CAP-0086 Policy Guard</h4>
+                <p className="text-xs text-white/70 leading-relaxed font-[380]">
                   On-chain evaluation of spender whitelist, merchant address, daily cap, and OpenZeppelin Pausable status.
                 </p>
               </div>
@@ -261,12 +261,12 @@ export default function PitchDeckPage() {
 
             <div className="bg-[#12161F] border border-white/10 p-5 rounded-xl text-[#F6F5F1] flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between text-[11px] font-mono text-[#10B981] mb-2">
+                <div className="flex items-center justify-between text-[11px] font-mono text-[#10B981] mb-2 font-[500]">
                   <span>STEP 03</span>
                   <span>NATIVE SDEX</span>
                 </div>
-                <h4 className="font-bold text-sm text-white mb-1.5">pathPaymentStrictReceive</h4>
-                <p className="text-xs text-white/70 leading-relaxed">
+                <h4 className="font-[480] text-sm text-white mb-1.5">pathPaymentStrictReceive</h4>
+                <p className="text-xs text-white/70 leading-relaxed font-[380]">
                   Protocol orderbook automatically debits exact EURC (23.06 EURC) and delivers exact USDC ($25.00) in 1 ledger step.
                 </p>
               </div>
@@ -277,12 +277,12 @@ export default function PitchDeckPage() {
 
             <div className="bg-[#0B3B2C]/40 border border-[#0B3B2C] p-5 rounded-xl text-[#F6F5F1] flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between text-[11px] font-mono text-[#10B981] mb-2">
+                <div className="flex items-center justify-between text-[11px] font-mono text-[#10B981] mb-2 font-[500]">
                   <span>STEP 04</span>
                   <span>CONFIRMATION</span>
                 </div>
-                <h4 className="font-bold text-sm text-white mb-1.5">Instant Settlement</h4>
-                <p className="text-xs text-white/70 leading-relaxed">
+                <h4 className="font-[480] text-sm text-white mb-1.5">Instant Settlement</h4>
+                <p className="text-xs text-white/70 leading-relaxed font-[380]">
                   Vendor receives settled USDC; autonomous agent unlocks HTTP 200 OK payload. Full cryptographic receipt emitted.
                 </p>
               </div>
@@ -323,7 +323,7 @@ export default function PitchDeckPage() {
       content: (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Stellar Unlocked Card */}
-          <div className="bg-[#12161F] border border-white/10 rounded-2xl p-6 text-[#F6F5F1]">
+          <div className="bg-[#12161F] border border-white/10 rounded-[var(--radius-card)] p-6 text-[#F6F5F1]">
             <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
               <span className="text-xs font-mono text-[#D4A24C] font-semibold tracking-wider">
                 TRACK 01: STELLAR UNLOCKED
@@ -335,29 +335,29 @@ export default function PitchDeckPage() {
 
             <div className="space-y-4 text-xs">
               <div>
-                <h4 className="font-bold text-white text-sm">Native SDEX pathPaymentStrictReceive</h4>
-                <p className="text-white/70 mt-1 leading-relaxed">
+                <h4 className="font-[480] text-white text-sm">Native SDEX pathPaymentStrictReceive</h4>
+                <p className="text-white/70 mt-1 leading-relaxed font-[380]">
                   Direct protocol-level order matching swaps EURC to USDC atomically without intermediate custodial contracts or off-chain aggregators.
                 </p>
               </div>
 
               <div>
-                <h4 className="font-bold text-white text-sm">Classic Asset + SAC Bridge (SEP-41)</h4>
-                <p className="text-white/70 mt-1 leading-relaxed">
+                <h4 className="font-[480] text-white text-sm">Classic Asset + SAC Bridge (SEP-41)</h4>
+                <p className="text-white/70 mt-1 leading-relaxed font-[380]">
                   Bridges classic Stellar trustlines directly into Soroban smart contract custody with unified token operations.
                 </p>
               </div>
 
               <div>
-                <h4 className="font-bold text-white text-sm">CAP-0085 Shared Executable Fleet</h4>
-                <p className="text-white/70 mt-1 leading-relaxed">
+                <h4 className="font-[480] text-white text-sm">CAP-0085 Shared Executable Fleet</h4>
+                <p className="text-white/70 mt-1 leading-relaxed font-[380]">
                   Regional subsidiary vaults reference a single audited Wasm bytecode hash (<code className="text-[#D4A24C]">v1_vault</code>), slashing state rent by 98%.
                 </p>
               </div>
 
               <div>
-                <h4 className="font-bold text-white text-sm">CAP-0086 Sparse Policy Structs</h4>
-                <p className="text-white/70 mt-1 leading-relaxed">
+                <h4 className="font-[480] text-white text-sm">CAP-0086 Sparse Policy Structs</h4>
+                <p className="text-white/70 mt-1 leading-relaxed font-[380]">
                   Discretionary attributes (<code className="text-[#D4A24C]">cost_center</code>, <code className="text-[#D4A24C]">max_single_tx</code>) omit absent keys on-wire, unpacking via sparse map slicing.
                 </p>
               </div>
@@ -365,9 +365,9 @@ export default function PitchDeckPage() {
           </div>
 
           {/* Stellar Composed Card */}
-          <div className="bg-[#12161F] border border-white/10 rounded-2xl p-6 text-[#F6F5F1]">
+          <div className="bg-[#12161F] border border-white/10 rounded-[var(--radius-card)] p-6 text-[#F6F5F1]">
             <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
-              <span className="text-xs font-mono text-[#10B981] font-semibold tracking-wider">
+              <span className="text-xs font-mono text-[#10B981] font-[500] tracking-wider">
                 TRACK 02: STELLAR COMPOSED
               </span>
               <span className="px-2 py-0.5 rounded bg-white/10 text-[10px] font-mono">
@@ -377,29 +377,29 @@ export default function PitchDeckPage() {
 
             <div className="space-y-4 text-xs">
               <div>
-                <h4 className="font-bold text-white text-sm">x402 v2 Machine Payments Protocol</h4>
-                <p className="text-white/70 mt-1 leading-relaxed">
+                <h4 className="font-[480] text-white text-sm">x402 v2 Machine Payments Protocol</h4>
+                <p className="text-white/70 mt-1 leading-relaxed font-[380]">
                   Full implementation of the newly released <code className="text-[#10B981]">@x402/stellar</code> v2 standard for HTTP 402 paywall negotiation settled via JIT SAC transfers.
                 </p>
               </div>
 
               <div>
-                <h4 className="font-bold text-white text-sm">Hardware WebAuthn secp256r1 CFO Passkeys</h4>
-                <p className="text-white/70 mt-1 leading-relaxed">
+                <h4 className="font-[480] text-white text-sm">Hardware WebAuthn secp256r1 CFO Passkeys</h4>
+                <p className="text-white/70 mt-1 leading-relaxed font-[380]">
                   Hardware TouchID/FaceID signatures validated natively via Soroban <code className="text-[#10B981]">secp256r1_verify</code> with low-S canonical normalization.
                 </p>
               </div>
 
               <div>
-                <h4 className="font-bold text-white text-sm">OpenZeppelin Soroban v0.8.0 Integration</h4>
-                <p className="text-white/70 mt-1 leading-relaxed">
+                <h4 className="font-[480] text-white text-sm">OpenZeppelin Soroban v0.8.0 Integration</h4>
+                <p className="text-white/70 mt-1 leading-relaxed font-[380]">
                   Audited <code className="text-[#10B981]">stellar-access</code> Ownable and <code className="text-[#10B981]">stellar-contract-utils</code> Pausable emergency kill-switch primitives.
                 </p>
               </div>
 
               <div>
-                <h4 className="font-bold text-white text-sm">Bounded Autonomous Agent Sub-Accounts</h4>
-                <p className="text-white/70 mt-1 leading-relaxed">
+                <h4 className="font-[480] text-white text-sm">Bounded Autonomous Agent Sub-Accounts</h4>
+                <p className="text-white/70 mt-1 leading-relaxed font-[380]">
                   AI bots operate within deterministic daily and per-transaction spending fences, completely insulated from enterprise balance sheet float.
                 </p>
               </div>
@@ -461,7 +461,7 @@ export default function PitchDeckPage() {
                   <td className="p-3 text-[#D4A24C] font-mono">Raw unconstrained spend</td>
                 </tr>
                 <tr className="bg-[#0B3B2C]/30 font-semibold border-t-2 border-[#10B981]">
-                  <td className="p-3 text-[#10B981] font-bold">PORTUS (Lisbon Genesis)</td>
+                  <td className="p-3 text-[#10B981] font-[480]">PORTUS (Lisbon Genesis)</td>
                   <td className="p-3 text-white font-mono">HackMeridian Dual-Track</td>
                   <td className="p-3 text-[#10B981]">100% EURC reserve + JIT SDEX</td>
                   <td className="p-3 text-[#10B981]">Soroban VM + CAP-0086 Guard</td>
@@ -649,7 +649,7 @@ export default function PitchDeckPage() {
       content: (
         <div className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#12161F] border border-white/10 rounded-2xl p-6 text-[#F6F5F1]">
+            <div className="bg-[#12161F] border border-white/10 rounded-[var(--radius-card)] p-6 text-[#F6F5F1]">
               <div className="text-2xl font-bold text-[#10B981] font-mono mb-1">$14.2T</div>
               <h4 className="font-bold text-white text-sm mb-2">European Treasury TAM</h4>
               <p className="text-xs text-white/70 leading-relaxed">
@@ -657,7 +657,7 @@ export default function PitchDeckPage() {
               </p>
             </div>
 
-            <div className="bg-[#12161F] border border-white/10 rounded-2xl p-6 text-[#F6F5F1]">
+            <div className="bg-[#12161F] border border-white/10 rounded-[var(--radius-card)] p-6 text-[#F6F5F1]">
               <div className="text-2xl font-bold text-[#D4A24C] font-mono mb-1">MiCA Compliant</div>
               <h4 className="font-bold text-white text-sm mb-2">Electronic Money Tokens</h4>
               <p className="text-xs text-white/70 leading-relaxed">
@@ -665,7 +665,7 @@ export default function PitchDeckPage() {
               </p>
             </div>
 
-            <div className="bg-[#12161F] border border-white/10 rounded-2xl p-6 text-[#F6F5F1]">
+            <div className="bg-[#12161F] border border-white/10 rounded-[var(--radius-card)] p-6 text-[#F6F5F1]">
               <div className="text-2xl font-bold text-white font-mono mb-1">15 Billion+</div>
               <h4 className="font-bold text-white text-sm mb-2">Machine Agent Identities</h4>
               <p className="text-xs text-white/70 leading-relaxed">

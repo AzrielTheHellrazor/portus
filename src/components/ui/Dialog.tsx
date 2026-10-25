@@ -57,11 +57,11 @@ export function Dialog({
       {/* Modal Surface */}
       <div
         ref={dialogRef}
-        className="relative w-full max-w-lg rounded-2xl bg-[#12161F] border border-white/10 p-6 sm:p-8 shadow-2xl text-[#EDEDF3] z-10 transition-all duration-200"
+        className="relative w-full max-w-lg rounded-[var(--radius-card)] bg-[#12161F] border border-white/10 p-6 sm:p-8 shadow-2xl text-[#EDEDF3] z-10 transition-all duration-200"
       >
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h3 id="dialog-title" className="text-xl font-bold tracking-tight text-[#EDEDF3]">
+            <h3 id="dialog-title" className="text-xl font-[480] tracking-tight text-[#EDEDF3]">
               {title}
             </h3>
             {description && (

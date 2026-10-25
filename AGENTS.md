@@ -24,6 +24,7 @@ Herhangi bir UI bileşeni, sayfa düzeni veya stil geliştirilirken öncelik sı
 - **Kart Yüzeyi:** `--surface-raised: #12161F`
 - **Yükseltilmiş Yüzey:** `--surface-overlay: #181E29`
 - **Hairline Kenarlık:** `border: 1px solid rgba(255, 255, 255, 0.08)`
+- **Hairline Kuralı:** Kartlar 1px hairline kenarlık kullanır (rgba(255,255,255,0.08) koyu zeminde). Mercury'nin "cards lift by fill colour, not borders" kuralı bu projede geçersizdir.
 
 ### Tabular-Nums Mono Rakam Kuralı
 - Tüm parasal tutarlar (`EURC`, `USDC`), döviz kurları, cüzdan/kontrat adresleri, işlem hash'leri, sayaçlar ve blok numaraları istisnasız `font-mono tabular-nums` sınıfıyla yazılmalıdır.

@@ -256,17 +256,17 @@ export function WalletConnectWidget({
   };
 
   return (
-    <div className="bg-[#0C0F14] text-[#F6F5F1] rounded-2xl p-6 sm:p-8 shadow-md mb-10 border border-white/10">
+    <div className="bg-[#0C0F14] text-[#F6F5F1] rounded-[var(--radius-card)] p-6 sm:p-8 shadow-md mb-10 border border-white/10">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-white/10 gap-4">
         <div>
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-sm bg-[#D4A24C]" aria-hidden="true" />
-            <span className="text-xs font-mono uppercase tracking-wider text-[#D4A24C] font-semibold">
+            <span className="text-xs font-mono uppercase tracking-wider text-[#D4A24C] font-[500]">
               Stellar Testnet Browser Wallet
             </span>
           </div>
-          <h3 className="text-lg font-bold text-white tracking-tight mt-1">
+          <h3 className="text-lg font-[480] text-white tracking-tight mt-1">
             Freighter Wallet Connection & Vault Attestation
           </h3>
           <p className="text-xs text-white/75 mt-0.5 max-w-xl">
@@ -294,7 +294,7 @@ export function WalletConnectWidget({
             <button
               onClick={handleConnect}
               disabled={isConnecting}
-              className="inline-flex items-center justify-center gap-2 min-h-8 py-2 px-4 rounded-md text-xs font-semibold text-white bg-[#065F46] hover:bg-[#047857] disabled:opacity-50 active:scale-[0.98] transition-all focus-visible:outline-2 focus-visible:outline-[#34D399] shadow-sm"
+              className="inline-flex items-center justify-center gap-2 min-h-8 py-2 px-4 rounded-md text-xs font-[420] text-white bg-[#065F46] hover:bg-[#047857] disabled:opacity-50 active:scale-[0.98] transition-all focus-visible:outline-2 focus-visible:outline-[#34D399] shadow-sm"
             >
               {isConnecting ? (
                 <span>Connecting Freighter...</span>
@@ -317,7 +317,7 @@ export function WalletConnectWidget({
               ℹ
             </span>
             <div>
-              <span className="text-white font-semibold block font-sans text-sm">
+              <span className="text-white font-[420] block font-sans text-sm">
                 Freighter Extension Not Detected
               </span>
               <span className="text-white/75 leading-relaxed block mt-0.5">
@@ -326,7 +326,7 @@ export function WalletConnectWidget({
                   href="https://www.freighter.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#D4A24C] hover:underline inline-flex items-center gap-1 font-semibold min-h-8 py-1 px-1 focus-visible:outline-2 focus-visible:outline-[#34D399]"
+                  className="text-[#D4A24C] hover:underline inline-flex items-center gap-1 font-[420] min-h-8 py-1 px-1 focus-visible:outline-2 focus-visible:outline-[#34D399]"
                 >
                   freighter.app
                   <span aria-hidden="true">↗</span>
@@ -337,7 +337,7 @@ export function WalletConnectWidget({
           </div>
           <button
             onClick={handleConnect}
-            className="self-start sm:self-auto shrink-0 inline-flex items-center justify-center min-h-8 py-1.5 px-3.5 rounded-md text-xs font-semibold text-[#0C0F14] bg-[#D4A24C] hover:bg-[#C59A45] transition-all focus-visible:outline-2 focus-visible:outline-[#34D399]"
+            className="self-start sm:self-auto shrink-0 inline-flex items-center justify-center min-h-8 py-1.5 px-3.5 rounded-md text-xs font-[420] text-[#0C0F14] bg-[#D4A24C] hover:bg-[#C59A45] transition-all focus-visible:outline-2 focus-visible:outline-[#34D399]"
           >
             Retry Connection
           </button>
@@ -354,7 +354,7 @@ export function WalletConnectWidget({
               <span className="text-white/75 block text-[10px] uppercase tracking-wider mb-1">
                 Connected Stellar Testnet Account
               </span>
-              <div className="text-white font-semibold truncate select-all">
+              <div className="text-white font-[420] truncate select-all">
                 {address}
               </div>
               <div className="mt-2 flex items-center gap-3">
@@ -399,7 +399,7 @@ export function WalletConnectWidget({
           <div className="p-5 rounded-xl bg-black/30 border border-white/10 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
             {/* Left: Sign Attestation */}
             <div>
-              <span className="text-xs font-bold text-white font-sans block">
+              <span className="text-xs font-[480] text-white font-sans block">
                 Sign Live On-Chain Vault Attestation
               </span>
               <span className="text-xs text-white/75 max-w-md block mt-0.5 font-sans">
@@ -412,7 +412,7 @@ export function WalletConnectWidget({
               <button
                 onClick={handleSignAttestation}
                 disabled={isAttesting}
-                className="inline-flex items-center justify-center gap-2 min-h-8 py-2.5 px-4 rounded-md text-xs font-semibold text-white bg-[#065F46] hover:bg-[#047857] disabled:opacity-50 active:scale-[0.98] transition-all focus-visible:outline-2 focus-visible:outline-[#34D399]"
+                className="inline-flex items-center justify-center gap-2 min-h-8 py-2.5 px-4 rounded-md text-xs font-[420] text-white bg-[#065F46] hover:bg-[#047857] disabled:opacity-50 active:scale-[0.98] transition-all focus-visible:outline-2 focus-visible:outline-[#34D399]"
               >
                 {isAttesting ? (
                   <span>Signing in Freighter...</span>
@@ -456,7 +456,7 @@ export function WalletConnectWidget({
             <div className="p-4 rounded-xl bg-[#065F46]/20 border border-[#065F46]/40 text-xs font-mono">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
-                  <span className="text-[#34D399] font-bold flex items-center gap-1.5 font-sans text-sm">
+                  <span className="text-[#34D399] font-[480] flex items-center gap-1.5 font-sans text-sm">
                     <span className="w-2 h-2 rounded-full bg-[#34D399]" aria-hidden="true" />
                     Live Testnet Attestation Confirmed
                   </span>
@@ -470,7 +470,7 @@ export function WalletConnectWidget({
                     href={stellarExpertTxUrl(attestationTxHash)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 min-h-8 py-1.5 px-2.5 rounded-md text-xs font-semibold text-white bg-white/10 hover:bg-white/20 transition-all focus-visible:outline-2 focus-visible:outline-[#34D399]"
+                    className="inline-flex items-center gap-1 min-h-8 py-1.5 px-2.5 rounded-md text-xs font-[420] text-white bg-white/10 hover:bg-white/20 transition-all focus-visible:outline-2 focus-visible:outline-[#34D399]"
                   >
                     <span>Verify on Stellar Expert</span>
                     <span aria-hidden="true">↗</span>
@@ -479,7 +479,7 @@ export function WalletConnectWidget({
                     href={stellarLabTxUrl(attestationTxHash)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 min-h-8 py-1.5 px-2.5 rounded-md text-xs font-semibold text-[#0C0F14] bg-[#D4A24C] hover:bg-[#C59A45] transition-all focus-visible:outline-2 focus-visible:outline-[#34D399]"
+                    className="inline-flex items-center gap-1 min-h-8 py-1.5 px-2.5 rounded-md text-xs font-[420] text-[#0C0F14] bg-[#D4A24C] hover:bg-[#C59A45] transition-all focus-visible:outline-2 focus-visible:outline-[#34D399]"
                   >
                     <span>Open in Stellar Lab</span>
                     <span aria-hidden="true">↗</span>
@@ -500,7 +500,7 @@ export function WalletConnectWidget({
           {/* Error Message */}
           {errorMessage && (
             <div className="p-3 rounded-lg bg-[#B91C1C]/20 border border-[#B91C1C]/40 text-xs font-mono text-[#FCA5A5]">
-              <span className="font-bold mr-2">Error:</span>
+              <span className="font-[480] mr-2">Error:</span>
               <span>{errorMessage}</span>
             </div>
           )}

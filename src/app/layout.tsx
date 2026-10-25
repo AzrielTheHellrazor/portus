@@ -108,10 +108,10 @@ export default function RootLayout({
         <div id="loader" role="status" aria-label="Loading Portus Treasury System">
           <div className="loader__inner">
             <div className="flex flex-col">
-              <span className="text-xs uppercase font-mono tracking-widest text-[#785316] font-semibold" data-loader-out>
+              <span className="text-xs uppercase font-mono tracking-widest text-[#785316] font-[500]" data-loader-out>
                 Portus · Lisbon Clearinghouse
               </span>
-              <span className="text-2xl sm:text-3xl font-bold font-sans text-[#0C0F14] tracking-tight mt-1" data-loader-out>
+              <span className="text-2xl sm:text-3xl font-[480] font-sans text-[#0C0F14] tracking-tight mt-1" data-loader-out>
                 Initializing Stellar Vault Engine
               </span>
             </div>
