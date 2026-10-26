@@ -3,7 +3,7 @@ import type { TreasuryStateSnapshot } from "@/types/treasury";
 import {
   stellarLabContractUrl,
   stellarExpertContractUrl,
-} from "./treasury/stellar-lab";
+} from "@/components/treasury/stellar-lab";
 
 interface FooterProps {
   state?: TreasuryStateSnapshot | null;
@@ -18,7 +18,7 @@ export function Footer({ state }: FooterProps) {
     "CC2Q2JLSIHMIXS4VQMNG57FXO4LPUQPSK2Z6CQAQXH5AKL6Y5NX4TBCF";
 
   return (
-    <footer className="w-full bg-[#0C0F14] text-[#F6F5F1] border-t border-white/10 pt-16 pb-12">
+    <footer className="w-full bg-canvas text-canvas border-t border-white/10 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           {/* Col 1: Brand & Historical Context */}
@@ -26,7 +26,7 @@ export function Footer({ state }: FooterProps) {
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-8 h-8 rounded bg-white flex items-center justify-center p-1">
-                  <svg viewBox="0 0 32 32" fill="none" className="w-full h-full text-[#0C0F14]" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" fill="none" className="w-full h-full text-canvas" aria-hidden="true">
                     <circle cx="16" cy="16" r="14" stroke="currentColor" strokeWidth="2" strokeDasharray="3 2" />
                     <path d="M16 6V26" stroke="#D4A24C" strokeWidth="2.5" />
                     <path d="M6 16H26" stroke="#D4A24C" strokeWidth="2.5" />
@@ -51,7 +51,7 @@ export function Footer({ state }: FooterProps) {
 
           {/* Col 2: Contract Hashes & Telemetry */}
           <div className="md:col-span-4 font-mono text-xs">
-            <span className="text-[11px] uppercase tracking-wider text-[#D4A24C] font-[500] block mb-3">
+            <span className="text-[11px] uppercase tracking-wider text-brass font-[500] block mb-3">
               On-Chain Contract Manifest
             </span>
             <div className="space-y-3 text-white/90">
@@ -65,7 +65,7 @@ export function Footer({ state }: FooterProps) {
                     href={stellarExpertContractUrl(vaultId)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center min-h-8 py-1.5 px-2 text-[#34D399] hover:underline"
+                    className="inline-flex items-center min-h-8 py-1.5 px-2 text-action hover:underline"
                     title="Verify on Stellar Expert"
                   >
                     Expert ↗
@@ -74,7 +74,7 @@ export function Footer({ state }: FooterProps) {
                     href={stellarLabContractUrl(vaultId)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center min-h-8 py-1.5 px-2 text-[#D4A24C] hover:underline font-[420]"
+                    className="inline-flex items-center min-h-8 py-1.5 px-2 text-brass hover:underline font-[420]"
                     title="Inspect in SDF Stellar Lab"
                   >
                     Lab ↗
@@ -92,7 +92,7 @@ export function Footer({ state }: FooterProps) {
                     href={stellarExpertContractUrl(factoryId)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center min-h-8 py-1.5 px-2 text-[#34D399] hover:underline"
+                    className="inline-flex items-center min-h-8 py-1.5 px-2 text-action hover:underline"
                     title="Verify on Stellar Expert"
                   >
                     Expert ↗
@@ -101,7 +101,7 @@ export function Footer({ state }: FooterProps) {
                     href={stellarLabContractUrl(factoryId)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center min-h-8 py-1.5 px-2 text-[#D4A24C] hover:underline font-[420]"
+                    className="inline-flex items-center min-h-8 py-1.5 px-2 text-brass hover:underline font-[420]"
                     title="Inspect in SDF Stellar Lab"
                   >
                     Lab ↗
@@ -119,14 +119,14 @@ export function Footer({ state }: FooterProps) {
           {/* Col 3: Navigation & Spec */}
           <div className="md:col-span-3 text-sm flex flex-col justify-between">
             <div>
-              <span className="text-[11px] font-mono uppercase tracking-wider text-[#D4A24C] font-[500] block mb-3">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-brass font-[500] block mb-3">
                 Protocol Documentation
               </span>
               <ul className="space-y-1 font-medium text-white/90">
                 <li>
                   <Link
                     href="/architecture"
-                    className="inline-flex items-center min-h-8 py-1.5 px-1 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-[#34D399]"
+                    className="inline-flex items-center min-h-8 py-1.5 px-1 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-action"
                   >
                     Technical Architecture Specification
                   </Link>
@@ -134,7 +134,7 @@ export function Footer({ state }: FooterProps) {
                 <li>
                   <a
                     href="#cockpit"
-                    className="inline-flex items-center min-h-8 py-1.5 px-1 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-[#34D399]"
+                    className="inline-flex items-center min-h-8 py-1.5 px-1 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-action"
                   >
                     Live Testnet Cockpit
                   </a>
@@ -142,7 +142,7 @@ export function Footer({ state }: FooterProps) {
                 <li>
                   <a
                     href="#x402-inspector"
-                    className="inline-flex items-center min-h-8 py-1.5 px-1 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-[#34D399]"
+                    className="inline-flex items-center min-h-8 py-1.5 px-1 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-action"
                   >
                     x402 v2 Protocol Trace
                   </a>
@@ -150,7 +150,7 @@ export function Footer({ state }: FooterProps) {
                 <li>
                   <a
                     href="#fleet"
-                    className="inline-flex items-center min-h-8 py-1.5 px-1 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-[#34D399]"
+                    className="inline-flex items-center min-h-8 py-1.5 px-1 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-action"
                   >
                     Subsidiary Fleet (CAP-0085)
                   </a>

@@ -1,4 +1,11 @@
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Titillium_Web, Inter, JetBrains_Mono } from "next/font/google";
+
+export const fontDisplay = Titillium_Web({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
 
 export const fontSans = Inter({
   subsets: ["latin"],
@@ -10,5 +17,4 @@ export const fontMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
 });

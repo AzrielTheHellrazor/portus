@@ -53,6 +53,24 @@
       "executableTag": "v1_vault",
       "wasmHash": "55be053e80de94bd6935d66b36e26f0bc2543e752a0e9b06244e355519c80674",
       "deployedLedger": 5383903
+    },
+    {
+      "subsidiaryCode": "TEST_OFHO52",
+      "name": "Portus TEST_OFHO52 Operations",
+      "jurisdiction": "Lisbon, PT",
+      "vaultAddress": "CDCIXFWTWTFNN2OLCGVAXZW7DV43U7CP4QNIMJ367UBL2JXP3G3VGAAP",
+      "executableTag": "v1_vault",
+      "wasmHash": "55be053e80de94bd6935d66b36e26f0bc2543e752a0e9b06244e355519c80674",
+      "deployedLedger": 5389097
+    },
+    {
+      "subsidiaryCode": "TEST_P3VRTS",
+      "name": "Portus TEST_P3VRTS Operations",
+      "jurisdiction": "Lisbon, PT",
+      "vaultAddress": "CBZTEQYZV35DOKNCHQWRJTAYB24T5YQ62CPXQ3BSP5IHMP6SZ6KWS5SX",
+      "executableTag": "v1_vault",
+      "wasmHash": "55be053e80de94bd6935d66b36e26f0bc2543e752a0e9b06244e355519c80674",
+      "deployedLedger": 5397291
     }
   ],
   "seededAt": "2026-10-25T12:24:13.383Z"

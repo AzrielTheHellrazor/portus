@@ -21,7 +21,7 @@ export function HeroSection({ state }: HeroSectionProps) {
   const eurUsdRate = state.balances.indicativeEurUsdRate;
 
   return (
-    <section className="relative w-full pt-12 pb-20 md:pt-20 md:pb-28 border-b border-[rgba(12,15,20,0.11)] overflow-hidden">
+    <section className="relative w-full pt-12 pb-20 md:pt-20 md:pb-28 border-b border-hairline overflow-hidden">
       {/* Subtle sovereign paper background grid */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.035]"
@@ -41,9 +41,9 @@ export function HeroSection({ state }: HeroSectionProps) {
             <div
               data-intro
               data-reveal="fade"
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0B3B2C]/10 border border-[#0B3B2C]/20 text-[#0B3B2C] text-xs font-mono font-[500] tracking-wide uppercase mb-6"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-action-deep/10 border border-action-deep/20 text-action-deep text-xs font-mono font-[500] tracking-wide uppercase mb-6"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0B3B2C]" aria-hidden="true" />
+              <span className="w-1.5 h-1.5 rounded-full bg-action-deep" aria-hidden="true" />
               <span>HACKMERIDIAN 2026 · LISBON · STELLAR PROTOCOL 29</span>
             </div>
 
@@ -51,7 +51,7 @@ export function HeroSection({ state }: HeroSectionProps) {
             <h1
               data-intro
               data-split="lines"
-              className="text-4xl sm:text-5xl lg:text-[clamp(2.5rem,5.2vw,4.75rem)] font-[480] text-[#0C0F14] tracking-[-0.035em] leading-[1.06] mb-6"
+              className="text-4xl sm:text-5xl lg:text-[clamp(2.5rem,5.2vw,4.75rem)] font-[480] text-canvas tracking-[-0.035em] leading-[1.06] mb-6"
             >
               Hold Euro Reserves. Settle Dollar Operations Atomically.
             </h1>
@@ -61,13 +61,13 @@ export function HeroSection({ state }: HeroSectionProps) {
               data-intro
               data-reveal="up"
               data-delay="0.15"
-              className="text-base sm:text-lg text-[#4A5260] leading-[1.6] max-w-2xl mb-8 font-[380]"
+              className="text-base sm:text-lg text-text-2 leading-[1.6] max-w-2xl mb-8 font-[380]"
             >
               Portus eliminates multi-currency prefunding and idle foreign dollar float for European enterprises.
-              By uniting Soroban <strong className="text-[#0C0F14] font-[480]">CAP-0086</strong> spend policies,
-              hardware <strong className="text-[#0C0F14] font-[480]">secp256r1</strong> CFO Passkeys,
-              Stellar&apos;s Native DEX <strong className="text-[#0C0F14] font-[480]">pathPaymentStrictReceive</strong>,
-              and <strong className="text-[#0C0F14] font-[480]">x402</strong> v2 HTTP micropayments, corporate cards
+              By uniting Soroban <strong className="text-canvas font-[480]">CAP-0086</strong> spend policies,
+              hardware <strong className="text-canvas font-[480]">secp256r1</strong> CFO Passkeys,
+              Stellar&apos;s Native DEX <strong className="text-canvas font-[480]">pathPaymentStrictReceive</strong>,
+              and <strong className="text-canvas font-[480]">x402</strong> v2 HTTP micropayments, corporate cards
               and autonomous AI agents spend dollars just-in-time from a sovereign Euro balance sheet.
             </p>
 
@@ -77,7 +77,7 @@ export function HeroSection({ state }: HeroSectionProps) {
                 href="#cockpit"
                 onClick={handleScrollToCockpit}
                 data-magnetic="0.2"
-                className="inline-flex items-center justify-center gap-3 min-h-[44px] px-6 py-3 text-sm font-[420] text-white bg-[#0B3B2C] hover:bg-[#12543F] active:scale-[0.98] rounded-full shadow-xs transition-all focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
+                className="inline-flex items-center justify-center gap-3 min-h-[44px] px-6 py-3 text-sm font-[420] text-white bg-action-deep hover:bg-action-deep active:scale-[0.98] rounded-full shadow-xs transition-all focus-visible:outline-2 focus-visible:outline-action-deep"
               >
                 <span>Launch Cockpit</span>
                 <span className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center" aria-hidden="true">
@@ -89,7 +89,7 @@ export function HeroSection({ state }: HeroSectionProps) {
 
               <Link
                 href="/deck"
-                className="inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 text-sm font-[420] text-[#0C0F14] bg-[rgba(12,15,20,0.06)] hover:bg-[rgba(12,15,20,0.12)] border border-[rgba(12,15,20,0.08)] active:scale-[0.98] rounded-full transition-all focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
+                className="inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 text-sm font-[420] text-canvas bg-hairline hover:bg-hairline border border-hairline active:scale-[0.98] rounded-full transition-all focus-visible:outline-2 focus-visible:outline-action-deep"
               >
                 <span>View Pitch Deck</span>
                 <span aria-hidden="true">→</span>
@@ -97,7 +97,7 @@ export function HeroSection({ state }: HeroSectionProps) {
 
               <Link
                 href="/architecture"
-                className="inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 text-sm font-[420] text-[#4A5260] hover:text-[#0C0F14] active:scale-[0.98] rounded-full transition-all focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
+                className="inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 text-sm font-[420] text-text-2 hover:text-canvas active:scale-[0.98] rounded-full transition-all focus-visible:outline-2 focus-visible:outline-action-deep"
               >
                 <span>Inspect Architecture</span>
                 <span aria-hidden="true">→</span>
@@ -105,29 +105,29 @@ export function HeroSection({ state }: HeroSectionProps) {
             </div>
 
             {/* Live Telemetry Micro-Bar */}
-            <div className="mt-10 pt-6 border-t border-[rgba(12,15,20,0.10)] w-full grid grid-cols-2 sm:grid-cols-3 gap-6">
+            <div className="mt-10 pt-6 border-t border-hairline w-full grid grid-cols-2 sm:grid-cols-3 gap-6">
               <div>
-                <span className="block text-[11px] font-mono uppercase tracking-wider text-[#646D7C]">
+                <span className="block text-[11px] font-mono uppercase tracking-wider text-text-3">
                   Vault Euro Reserve
                 </span>
-                <span className="text-sm font-mono font-semibold text-[#0C0F14] tabular-nums">
+                <span className="text-sm font-mono font-semibold text-canvas tabular-nums">
                   €{eurcBalance} EURC
                 </span>
               </div>
               <div>
-                <span className="block text-[11px] font-mono uppercase tracking-wider text-[#646D7C]">
+                <span className="block text-[11px] font-mono uppercase tracking-wider text-text-3">
                   Native SDEX FX Rate
                 </span>
-                <span className="text-sm font-mono font-semibold text-[#0C0F14] tabular-nums">
+                <span className="text-sm font-mono font-semibold text-canvas tabular-nums">
                   1 EURC = ${eurUsdRate} USDC
                 </span>
               </div>
               <div className="col-span-2 sm:col-span-1">
-                <span className="block text-[11px] font-mono uppercase tracking-wider text-[#646D7C]">
+                <span className="block text-[11px] font-mono uppercase tracking-wider text-text-3">
                   On-Chain Settlement
                 </span>
-                <span className="text-sm font-mono font-semibold text-[#065F46] flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#065F46]" />
+                <span className="text-sm font-mono font-semibold text-action-deep flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-action-deep" />
                   Atomic · 0 Idle Float
                 </span>
               </div>
@@ -136,16 +136,16 @@ export function HeroSection({ state }: HeroSectionProps) {
 
           {/* Right Column: Bespoke Vector Clearinghouse Atomic Flow Seal */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="w-full max-w-md bg-white border border-[rgba(12,15,20,0.11)] rounded-[var(--radius-card)] p-6 shadow-sm relative">
+            <div className="w-full max-w-md bg-white border border-hairline rounded-[var(--radius-card)] p-6 shadow-sm relative">
               {/* Header of the Seal Card */}
-              <div className="flex items-center justify-between pb-4 border-b border-[rgba(12,15,20,0.08)]">
+              <div className="flex items-center justify-between pb-4 border-b border-hairline">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-sm bg-[#785316]" aria-hidden="true" />
-                  <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#0C0F14]">
+                  <span className="w-2.5 h-2.5 rounded-sm bg-brass" aria-hidden="true" />
+                  <span className="text-xs font-mono font-semibold uppercase tracking-wider text-canvas">
                     Clearinghouse Routing Seal
                   </span>
                 </div>
-                <span className="text-[11px] font-mono text-[#065F46] bg-[#065F46]/10 px-2 py-0.5 rounded font-semibold">
+                <span className="text-[11px] font-mono text-action-deep bg-action-deep/10 px-2 py-0.5 rounded font-semibold">
                   SYNCHRONIZED
                 </span>
               </div>
@@ -280,9 +280,9 @@ export function HeroSection({ state }: HeroSectionProps) {
               </div>
 
               {/* Explanatory Footer Pill */}
-              <div className="bg-[#F6F5F1] rounded-lg p-3 border border-[rgba(12,15,20,0.08)] flex items-center justify-between text-xs font-mono">
-                <span className="text-[#4A5260]">Atomic Sequence:</span>
-                <span className="font-semibold text-[#0B3B2C]">Single Stellar Envelope (1 Ledger)</span>
+              <div className="bg-canvas rounded-lg p-3 border border-hairline flex items-center justify-between text-xs font-mono">
+                <span className="text-text-2">Atomic Sequence:</span>
+                <span className="font-semibold text-action-deep">Single Stellar Envelope (1 Ledger)</span>
               </div>
             </div>
           </div>

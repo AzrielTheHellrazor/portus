@@ -25,18 +25,16 @@ export function Switch({
       aria-label={label}
       disabled={disabled}
       onClick={() => !disabled && onCheckedChange(!checked)}
-      className={`group relative inline-flex h-7 w-12 shrink-0 cursor-pointer items-center rounded-full border border-transparent p-0.5 transition-colors duration-200 ease-in-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A24C] disabled:cursor-not-allowed disabled:opacity-40 ${
+      className={`group relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-pill border transition-colors duration-200 ease-in-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text disabled:cursor-not-allowed disabled:opacity-40 ${
         checked
-          ? "bg-[#D4A24C] border-[#D4A24C]"
-          : "bg-white/10 border-white/15 hover:bg-white/15"
+          ? "bg-status-error border-status-error"
+          : "bg-surface-soft border-hairline hover:border-hairline-strong"
       } ${className}`}
     >
       <span
         aria-hidden="true"
-        className={`pointer-events-none inline-block h-5 w-5 transform rounded-full shadow-sm ring-0 transition-transform duration-200 ease-out ${
-          checked
-            ? "translate-x-5 bg-[#0C0F14]"
-            : "translate-x-0.5 bg-[#EDEDF3]"
+        className={`pointer-events-none inline-block h-4 w-4 transform rounded-pill transition-transform duration-200 ease-out ${
+          checked ? "translate-x-5 bg-canvas" : "translate-x-1 bg-text"
         }`}
       />
     </button>

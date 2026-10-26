@@ -1,6 +1,6 @@
 ---
 name: obsidian-ui
-description: Yalnızca koyu tema yüzey, katman derinliği ve kontrast uygulaması için. Renk paletini belirlemez.
+description: Bu projede kullanılmaz.
 ---
 
 # Obsidian UI Specification

@@ -49,7 +49,7 @@ export function Dialog({
     >
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-[#0C0F14]/80 backdrop-blur-md transition-opacity"
+        className="fixed inset-0 bg-text/40 backdrop-blur-sm transition-opacity"
         onClick={() => onOpenChange(false)}
         aria-hidden="true"
       />
@@ -57,15 +57,15 @@ export function Dialog({
       {/* Modal Surface */}
       <div
         ref={dialogRef}
-        className="relative w-full max-w-lg rounded-[var(--radius-card)] bg-[#12161F] border border-white/10 p-6 sm:p-8 shadow-2xl text-[#EDEDF3] z-10 transition-all duration-200"
+        className="relative w-full max-w-lg rounded-card bg-surface border border-hairline p-6 sm:p-8 text-text shadow-xl z-10 transition-all duration-200"
       >
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h3 id="dialog-title" className="text-xl font-[480] tracking-tight text-[#EDEDF3]">
+            <h2 id="dialog-title" className="text-xl font-medium tracking-tight">
               {title}
-            </h3>
+            </h2>
             {description && (
-              <p id="dialog-desc" className="text-xs text-white/75 mt-1 leading-relaxed">
+              <p id="dialog-desc" className="text-xs text-text-2 mt-1">
                 {description}
               </p>
             )}
@@ -74,12 +74,23 @@ export function Dialog({
             type="button"
             onClick={() => onOpenChange(false)}
             aria-label="Close dialog"
-            className="rounded-full p-1.5 text-white/60 hover:text-white hover:bg-white/10 transition-colors focus-visible:outline-2 focus-visible:outline-[#D4A24C]"
+            className="p-1 rounded-pill text-text-2 hover:text-text hover:bg-surface-soft transition-colors"
           >
-            ✕
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
           </button>
         </div>
-
         <div className="mt-4">{children}</div>
       </div>
     </div>

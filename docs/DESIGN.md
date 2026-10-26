@@ -1,122 +1,431 @@
-# Mercury Geometric & Structural Design System (Portus Edition)
+---
+version: alpha
+name: Jobright Analysis
+description: An analysis of Jobright's design language — an AI job-hunting platform built on an energetic spring-mint green against black and white, with pale-mint section bands carrying the page rhythm. Bold condensed Titillium Web display headings pair with a clean Inter UI, and the CTA system runs on high-contrast pill buttons — black pills for primary actions, a mint-green pill for the signature accent. Rounded product-mockup cards, a scrolling black job ticker, and generous whitespace give it a friendly, high-energy startup feel.
 
-> Structural and geometric rules extracted from Mercury's design language. 
-> NOTE: Colors in this system are strictly superseded by Portus tokens in the root `AGENTS.md` (Pine/Emerald `#0B3B2C` / `#10B981`, Brass `#D4A24C`, Obsidian `#0C0F14`). All indigo, periwinkle, and violet references are removed.
+colors:
+  primary: "#00f0a0"
+  on-primary: "#000000"
+  ink: "#000000"
+  on-dark: "#ffffff"
+  canvas: "#ffffff"
+  canvas-mint: "#ecffe0"
+  muted: "#86909c"
+  hairline: "#e5e7eb"
+  surface-soft: "#f2f4f5"
+
+typography:
+  display:
+    fontFamily: Titillium Web
+    fontSize: 80px
+    fontWeight: 700
+    lineHeight: 1.05
+    letterSpacing: -1px
+  heading-1:
+    fontFamily: Titillium Web
+    fontSize: 60px
+    fontWeight: 700
+    lineHeight: 1.1
+    letterSpacing: -0.5px
+  heading-2:
+    fontFamily: Titillium Web
+    fontSize: 48px
+    fontWeight: 700
+    lineHeight: 1.15
+    letterSpacing: 0
+  heading-3:
+    fontFamily: Titillium Web
+    fontSize: 38px
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: 0
+  heading-4:
+    fontFamily: Titillium Web
+    fontSize: 32px
+    fontWeight: 600
+    lineHeight: 1.25
+    letterSpacing: 0
+  body-lg:
+    fontFamily: Inter
+    fontSize: 18px
+    fontWeight: 300
+    lineHeight: 1.6
+    letterSpacing: 0
+  body-md:
+    fontFamily: Inter
+    fontSize: 16px
+    fontWeight: 500
+    lineHeight: 1.6
+    letterSpacing: 0
+  body-sm:
+    fontFamily: Inter
+    fontSize: 14px
+    fontWeight: 500
+    lineHeight: 1.5
+    letterSpacing: 0
+  button:
+    fontFamily: Inter
+    fontSize: 16px
+    fontWeight: 600
+    lineHeight: 1
+    letterSpacing: 0
+  nav-link:
+    fontFamily: Inter
+    fontSize: 14px
+    fontWeight: 600
+    lineHeight: 1.4
+    letterSpacing: 0
+  caption:
+    fontFamily: Inter
+    fontSize: 13px
+    fontWeight: 500
+    lineHeight: 1.4
+    letterSpacing: 0
+
+rounded:
+  none: 0px
+  sm: 12px
+  md: 16px
+  lg: 24px
+  xl: 28px
+  pill-nav: 18px
+  pill: 36px
+  card: 40px
+  full: 9999px
+
+spacing:
+  xxs: 4px
+  xs: 8px
+  sm: 12px
+  md: 16px
+  lg: 24px
+  xl: 32px
+  xxl: 48px
+  section: 96px
+
+components:
+  nav-bar:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    typography: "{typography.nav-link}"
+    padding: "{spacing.md}"
+  button-primary:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.on-dark}"
+    typography: "{typography.button}"
+    rounded: "{rounded.xl}"
+    padding: "{spacing.sm} {spacing.section}"
+  button-primary-sm:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.on-dark}"
+    typography: "{typography.nav-link}"
+    rounded: "{rounded.pill-nav}"
+    padding: "{spacing.xxs} {spacing.md}"
+  button-green:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.on-primary}"
+    borderColor: "{colors.ink}"
+    typography: "{typography.button}"
+    rounded: "{rounded.pill}"
+    padding: "{spacing.sm} {spacing.xxl}"
+  button-dark-square:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.on-dark}"
+    typography: "{typography.button}"
+    rounded: "{rounded.sm}"
+    padding: "{spacing.sm} {spacing.md}"
+  text-input:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    borderColor: "{colors.hairline}"
+    typography: "{typography.body-md}"
+    rounded: "{rounded.none}"
+    padding: "{spacing.sm} {spacing.md}"
+  hero:
+    backgroundColor: "{colors.canvas-mint}"
+    textColor: "{colors.ink}"
+    typography: "{typography.display}"
+    padding: "{spacing.section}"
+  video-card:
+    backgroundColor: "{colors.canvas}"
+    borderColor: "{colors.ink}"
+    rounded: "{rounded.md}"
+  stat-item:
+    backgroundColor: "{colors.canvas-mint}"
+    textColor: "{colors.ink}"
+    typography: "{typography.heading-3}"
+  job-ticker:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.on-dark}"
+    typography: "{typography.body-sm}"
+    padding: "{spacing.md}"
+  feature-band:
+    backgroundColor: "{colors.canvas-mint}"
+    textColor: "{colors.ink}"
+    typography: "{typography.heading-2}"
+    padding: "{spacing.section}"
+  feature-card:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    typography: "{typography.body-md}"
+    rounded: "{rounded.card}"
+    padding: "{spacing.lg}"
+  score-ring:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.primary}"
+    typography: "{typography.heading-4}"
+    rounded: "{rounded.full}"
+    size: 64px
+  testimonial-card:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    borderColor: "{colors.hairline}"
+    typography: "{typography.body-md}"
+    rounded: "{rounded.lg}"
+    padding: "{spacing.lg}"
+  testimonial-band-dark:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.on-dark}"
+    typography: "{typography.heading-4}"
+    padding: "{spacing.section}"
+  faq-item:
+    backgroundColor: "{colors.canvas-mint}"
+    textColor: "{colors.ink}"
+    borderColor: "{colors.hairline}"
+    typography: "{typography.body-md}"
+    rounded: "{rounded.md}"
+    padding: "{spacing.md}"
+  cta-band:
+    backgroundColor: "{colors.canvas-mint}"
+    textColor: "{colors.ink}"
+    typography: "{typography.heading-2}"
+    padding: "{spacing.section}"
+  job-search-bar:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    borderColor: "{colors.hairline}"
+    typography: "{typography.body-sm}"
+    rounded: "{rounded.full}"
+    padding: "{spacing.xs} {spacing.md}"
+  footer:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.muted}"
+    typography: "{typography.body-sm}"
+    padding: "{spacing.section}"
 
 ---
 
-## 1. Typography System
+
+
+## Overview
+
+Jobright is the marketing site of an AI job-hunting platform, and its design radiates startup energy. The system is anchored by a single electric accent — a spring-mint green (`{colors.primary}` — #00f0a0) — set against crisp black (`{colors.ink}`) and white (`{colors.canvas}`). The signature move is a pale-mint section band (`{colors.canvas-mint}` — #ecffe0) that carries most of the page: heroes, feature blocks, FAQ, and the closing CTA all sit on this soft green wash, punctuated by full-black bands for the scrolling job ticker and a featured testimonial.
+
+The type system pairs a bold, slightly condensed Titillium Web (`{typography.display}`) for big confident headlines with a clean Inter (`{typography.body-md}`) for UI and body copy. Headlines run large and heavy; body stays light and readable. The overall feel is friendly and high-energy rather than corporate — rounded product-mockup cards, emoji accents, and generous whitespace keep it approachable.
+
+The CTA system is built on high-contrast pill buttons. Primary actions use a **black pill** (`{colors.ink}` fill, white label) at a large 28px radius; the brand's signature accent button is a **mint-green pill** (`{colors.primary}` fill, black label, thin black border) at a rounder 36px. Product features are demonstrated in white mockup cards with pronounced 40px asymmetric corners, floating over the mint bands. Elevation is light — a hairline or a whisper-soft shadow, never heavy blur.
+
+**Key Characteristics:**
+- A single electric accent: spring-mint `{colors.primary}` owns the logo, links, the signature green pill, and every highlight — used against black and white with conviction.
+- Pale-mint section bands (`{colors.canvas-mint}`) carry the page rhythm, alternating with white and full-black bands.
+- Dual pill-button system: black pills (`{rounded.lg}`) for primary CTAs, a mint-green pill (`{rounded.pill}`) for the signature accent action.
+- Bold Titillium Web display type (`{typography.display}`) over a light, clean Inter body (`{typography.body-lg}`) — confident headlines, quiet copy.
+- Rounded product-mockup cards with a distinctive 40px asymmetric corner (`{rounded.card}`), floating over the mint bands to demo AI features.
+- Page rhythm: mint hero → mint stats → white job-hub → black scrolling ticker → alternating mint feature bands → white testimonials → black featured quote → mint FAQ → mint CTA → white footer.
+
+## Colors
+
+Source pages analyzed: the homepage, the job-referral page, the employers page, the about page, and the tnt page. The palette is consistent across all five — a tightly controlled mint / black / white system.
+
+### Brand & Accent
+- **Spring Mint** (`{colors.primary}` — #00f0a0): the brand's one electric accent. Colors the logo mark, links, the signature green pill button, score highlights, and inline emphasis.
+- **On-Primary** (`{colors.on-primary}` — #000000): black label used on top of the mint-green button, where dark-on-mint reads with maximum punch.
+
+### Surface
+- **Canvas** (`{colors.canvas}` — #ffffff): default page and card background.
+- **Mint Canvas** (`{colors.canvas-mint}` — #ecffe0): the pale spring-mint band that carries the hero, feature blocks, FAQ, and CTA sections — the system's dominant surface.
+- **Soft Surface** (`{colors.surface-soft}` — #f2f4f5): light gray utility fill for inset panels and inputs.
+- **Hairline** (`{colors.hairline}` — #e5e7eb): 1px card and divider borders.
+
+### Text
+- **Ink** (`{colors.ink}` — #000000): headings, body text, and the fill of every black pill button and dark band.
+- **Muted** (`{colors.muted}` — #86909c): secondary text, captions, and footer links.
+- **On Dark** (`{colors.on-dark}` — #ffffff): text set on the black ticker and testimonial bands.
+
+## Typography
 
 ### Font Family
-- **Display & Headlines:** Inter (variable, open fit with +0.01em tracking at display sizes).
-- **Body & UI:** Inter (variable, light weights).
-- **Numbers & Telemetry:** Mono (`JetBrains Mono`, `tabular-nums`) — Portus invariant.
+Two families do the work. **Titillium Web** — a bold, slightly condensed humanist sans — carries every display headline and section title, giving the page its confident, high-energy voice. **Inter** handles all body copy, UI labels, buttons, and captions, keeping dense content clean and legible. The contrast between heavy condensed headlines and light, airy body copy is the system's core typographic tension.
 
-### Hierarchy & Weights
+### Hierarchy
 
-| Token | Size | Weight | Line Height | Letter Spacing | Use Case |
+| Token | Size | Weight | Line Height | Letter Spacing | Use |
 |---|---|---|---|---|---|
-| `stat` | 60px | 480 | 1.1 | 0 | Stat numerals, large metrics |
-| `display` | 52px | 480 | 1.1 | 0 | Hero headlines |
-| `heading-1` | 42px | 480 | 1.15 | +0.42px | Major section titles |
-| `heading-2` | 28px | 480 | 1.2 | +0.42px | Card titles, module headers |
-| `lead` | 24px | 480 | 1.2 | +0.48px | Lead statements, summary blurbs |
-| `body-lg` | 18px | 360 | 1.35 | 0 | Card descriptions, intro text |
-| `body` | 16px | 400 | 1.4 | 0 | Standard narrative copy |
-| `ui` | 16px | 420 | 1.0 | 0 | Primary buttons, nav links, inputs |
-| `ui-sm` | 14px | 420 | 1.0 | +0.07px | Compact pill tags, table labels |
-| `eyebrow` | 14px | 500 | 1.0 | +0.28px | Small uppercase category badges |
-| `legal` | 12px | 400 | 1.4 | +0.24px | Captions, timestamps, disclaimers |
+| `{typography.display}` | 80px | 700 | 1.05 | -1px | Largest hero / section headline (Titillium Web) |
+| `{typography.heading-1}` | 60px | 700 | 1.1 | -0.5px | Primary section headings (Titillium Web) |
+| `{typography.heading-2}` | 48px | 700 | 1.15 | 0 | Feature-band headings (Titillium Web) |
+| `{typography.heading-3}` | 38px | 700 | 1.2 | 0 | Stat numbers, sub-headings (Titillium Web) |
+| `{typography.heading-4}` | 32px | 600 | 1.25 | 0 | Card titles, quotes (Titillium Web) |
+| `{typography.body-lg}` | 18px | 300 | 1.6 | 0 | Lead paragraphs (Inter light) |
+| `{typography.body-md}` | 16px | 500 | 1.6 | 0 | Default body copy (Inter) |
+| `{typography.body-sm}` | 14px | 500 | 1.5 | 0 | Dense body, ticker, footer (Inter) |
+| `{typography.button}` | 16px | 600 | 1 | 0 | Button labels (Inter) |
+| `{typography.nav-link}` | 14px | 600 | 1.4 | 0 | Top-nav links (Inter) |
+| `{typography.caption}` | 13px | 500 | 1.4 | 0 | Fine print, metadata (Inter) |
 
-### Core Typography Principles
-- **Unusually light variable weights:** Headlines sit at `480`, UI labels at `420`, body copy at `360–400`. Hierarchy is driven by scale and contrast, never heavy bold weights (`600/700` are banned for text).
-- **Positive tracking on headlines:** Slight positive tracking (`+0.01em` to `+0.42px`) instead of negative tightening creates a spacious, gallery-like pace.
-- **Uppercase discipline:** Uppercase is strictly reserved for small `eyebrow` labels.
+### Principles
+Headlines are big, heavy, and condensed for maximum confidence; body copy stays light (Inter 300) and roomy. The pairing lets marketing headlines shout while product detail stays quiet and scannable.
 
----
+### Note on Font Substitutes
+Both Titillium Web and Inter are open-source Google fonts — use them directly. If a fallback is needed, Titillium Web degrades to a condensed sans (e.g. "Arial Narrow", system-ui) and Inter to Helvetica/Arial with no metric adjustment.
 
-## 2. Spacing & Grid System
+## Layout
 
-### Spacing Scale (8px Base Grid)
-- `spacing.xs`: 8px
-- `spacing.sm`: 12px
-- `spacing.md`: 16px
-- `spacing.lg`: 20px
-- `spacing.xl`: 24px
-- `spacing.xxl`: 32px (standard card padding)
-- `spacing.huge`: 40px
-- `spacing.section`: 80px (minimum section separation)
-- `spacing.section-lg`: 128px (major landmark separation)
+### Spacing System
+- **Base unit**: 8px.
+- **Tokens (front matter)**: `{spacing.xxs}` 4px · `{spacing.xs}` 8px · `{spacing.sm}` 12px · `{spacing.md}` 16px · `{spacing.lg}` 24px · `{spacing.xl}` 32px · `{spacing.xxl}` 48px · `{spacing.section}` 96px.
+- Feature cards sit at `{spacing.lg}`; full-width bands breathe at `{spacing.section}`; the large primary pill uses a wide `{spacing.sm} {spacing.section}` padding.
 
-### Container & Layout Rhythm
-- **Max Container Width:** 1140px – 1280px, horizontally centered.
-- **Headline Width:** Constrained to ~640px to prevent uncomfortably wide line wraps.
-- **Section Rhythm:** Nav → Hero → 2/3-Up Card Grids → Data Telemetry Module → Footer.
-- **Whitespace Pace:** Generous vertical padding gives every section a calm, institutional rhythm.
+### Grid & Container
+Content is centered in a ~1200px container (the dominant breakpoint in a wide 1600→575px ladder). Feature blocks run as two-column rows — copy + CTA on one side, a product-mockup card on the other — alternating sides down the page and collapsing to stacked single column on narrow screens. Testimonials run 3-up; the footer job-search bar runs as a single horizontal control row.
 
----
+### Whitespace Philosophy
+Whitespace is generous and band-driven. The page groups content by alternating full-width color bands — pale mint for marketing sections, white for neutral content, full black for the ticker and featured quote — with roomy vertical padding that keeps the high-energy type from feeling crowded.
 
-## 3. Shapes & Corner Radii
+### Responsive Strategy
 
-| Token | Value | Applied To |
+#### Breakpoints
+| Name | Width | Key Changes |
 |---|---|---|
-| `--radius-none` | 0px | Full-bleed strips, table row boundaries |
-| `--radius-xs` | 4px | Small inline code tags, status dots |
-| `--radius-sm` | 6px | Small inputs, badges |
-| `--radius-card-sm` | 8px | Sub-cards, inner module cells |
-| `--radius-card` | **12px** | **All institutional cards, panels, containers** |
-| `--radius-pill-primary` | **32px** | **Primary solid action buttons** |
-| `--radius-pill-secondary`| **40px** | **Secondary translucent/glass action pills** |
-| `--radius-pill` | 9999px | Full capsule toggles, category badges |
+| Mobile | < 576px | Single column; nav → hamburger; feature rows stack; pills go full-width |
+| Tablet | 576–991px | Two-column feature rows collapse toward stacked; testimonials drop to 1–2 up |
+| Laptop | 992–1199px | Multi-column grids intact; tightened gutters |
+| Desktop | ≥ 1200px | Full layout; centered ~1200px column; full-bleed bands |
 
----
+#### Touch Targets
+The primary (`{component.button-primary}`) and green (`{component.button-green}`) pills carry ample padding for a comfortable ≥44px tap height. Nav collapses to a hamburger under 768px while keeping the black "Join Now" pill visible.
 
-## 4. Component Geometry & Button Architecture
+#### Collapsing Strategy
+The top nav collapses to a hamburger under 768px, keeping the black CTA pill. Two-column feature rows stack image-below-copy; the 3-up testimonial grid reflows to 1–2 up; the footer job-search bar wraps its select controls. The full-width mint and black bands stay full-bleed at every width.
 
-### Button Rules
-- **Rule of Single Dominance:** In any view or module, there is strictly **at most ONE solid filled action button**.
-- **Primary Action Pill:**
-  - Height: 40px, padding: 0 20px.
-  - Border radius: `var(--radius-pill-primary)` (32px).
-  - Background: Portus Pine/Emerald (`#0B3B2C` / `#10B981`), text: `#FFFFFF`.
-- **Secondary Glass/Translucent Pill:**
-  - Height: 40px, padding: 0 20px.
-  - Border radius: `var(--radius-pill-secondary)` (40px).
-  - Background: 15–20% translucent fill with a 1px hairline border (`rgba(255,255,255,0.12)`).
-  - Text: `#EDEDF3`.
+#### Image Behavior
+Product-mockup imagery sits inside rounded white cards (`{rounded.card}` / `{rounded.md}`), floating over the mint bands with a soft shadow. The hero leads with a rounded video card. Avatars and score rings are circular (`{rounded.full}`). Images lazy-load below the fold; the job ticker scrolls as a continuous marquee.
 
-### Card Geometry
-- **Padding:** 24px (mobile) to 32px (desktop).
-- **Corner Radius:** Strictly `var(--radius-card)` (12px).
-- **Borders:** 1px hairline (`border border-white/[0.08]` on dark; `border border-[rgba(12,15,20,0.08)]` on light).
-- **Elevation:** Tonal surface lifting (`#12161F` on `#0C0F14`), zero cartoonish drop shadows.
+## Elevation & Depth
 
----
-
-## 5. Responsive Breakpoints & Touch Targets
-
-| Breakpoint | Width | Behavior |
+| Level | Treatment | Use |
 |---|---|---|
-| **Desktop** | ≥ 1200px | Full 3-up card grids, side-by-side terminal inspector |
-| **Laptop** | 1024–1199px | 2-up grids, fluid font scaling |
-| **Tablet** | 768–1023px | Grids reflow 2-up to stacked, controls expand |
-| **Mobile** | < 768px | 1-column stacked cards, navigation collapses to accessible drawer |
+| 0 — Flat | 1px `{colors.hairline}` border or none | Bands, list rows, inputs |
+| 1 — Hairline | `rgba(0,0,0,0.5)` 0px 0px 0px 0.5px inset | Bordered chips and outlined controls |
+| 2 — Soft float | whisper-soft drop shadow | Product-mockup cards floating over mint bands |
 
-### Touch Target Floor
-All interactive elements maintain a bounding box of at least 44px on touch devices and a minimum height of 32px (`min-h-8`) with `py-1.5 px-3` on desktop.
+Elevation is deliberately light — the design relies on color-band contrast and rounded card shapes rather than heavy shadow. Depth comes from the mockup cards lifting off the mint bands and the full-black bands punctuating the page.
 
----
+### Decorative Depth
+There is no gradient system; depth is band-and-card based. Playful accents — emoji, a pink heart, hand-drawn illustration marks — add lightweight texture, and the scrolling black job ticker adds motion-based depth between static sections.
 
-## 6. Do's and Don'ts
+## Shapes
 
-### Do
-- Keep text weights light: headlines at `480`, UI at `420`, body at `360–400`.
-- Maintain strictly 12px corner radii on all card containers.
-- Use a single solid action pill per module; secondary actions must be translucent glass.
-- Use `tabular-nums font-mono` for all numeric figures, financial amounts, and hashes.
+### Border Radius Scale
 
-### Don't
-- **Never use indigo, periwinkle, lavender, or violet.**
-- Never set headings in `font-bold` (`700`) or heavy black weights.
-- Never use 24px or 32px corner radii on card containers (those belong to pills).
-- Never use heavy drop shadows; depth is achieved via tonal surface elevation and hairlines.
+| Token | Value | Use |
+|---|---|---|
+| `{rounded.sm}` | 12px | Square dark button, small chips, inputs |
+| `{rounded.md}` | 16px | Cards, tab lists, video card |
+| `{rounded.lg}` | 24px | Testimonial and content cards |
+| `{rounded.lg}` | 28px | Primary black CTA pill (large) |
+| `{rounded.pill-nav}` | 18px | Compact nav pill button |
+| `{rounded.pill}` | 36px | Signature mint-green pill button |
+| `{rounded.card}` | 40px | Product-mockup feature cards (asymmetric 0/40/40 corner) |
+| `{rounded.full}` | 9999px | Avatars, score rings, footer search bar |
+
+### Photography Geometry
+Product mockups sit inside rounded white cards at 16–40px corners (`{rounded.md}` / `{rounded.card}`), often with one asymmetric sharp corner for a distinctive silhouette. Avatars and circular score rings are fully round (`{rounded.full}`). The hero video is a rounded card (`{rounded.md}`).
+
+## Components
+
+### Buttons
+
+**`button-primary`** — the large black pill CTA ("Try For Free", "Find My Matches", "Start Autofilling")
+- Background `{colors.ink}`, white label `{colors.on-dark}`, type `{typography.button}`, rounded `{rounded.lg}`, wide padding `{spacing.sm} {spacing.section}`.
+
+**`button-primary-sm`** — the compact black nav pill ("Join Now")
+- Background `{colors.ink}`, white label `{colors.on-dark}`, type `{typography.nav-link}`, rounded `{rounded.pill-nav}`, padding `{spacing.xxs} {spacing.md}`.
+
+**`button-green`** — the signature mint-green pill ("Try For Free" on the closing CTA)
+- Background `{colors.primary}`, black label `{colors.on-primary}`, 1px black border `{colors.ink}`, type `{typography.button}`, rounded `{rounded.pill}`, padding `{spacing.sm} {spacing.xxl}`.
+
+**`button-dark-square`** — a squarer black utility button
+- Background `{colors.ink}`, white label `{colors.on-dark}`, type `{typography.button}`, rounded `{rounded.sm}`, padding `{spacing.sm} {spacing.md}`.
+
+### Cards & Containers
+
+**`feature-card`** — the white product-mockup card demoing an AI feature
+- Background `{colors.canvas}`, type `{typography.body-md}`, rounded `{rounded.card}` (40px, with one asymmetric sharp corner), padding `{spacing.lg}`, floating on a soft shadow over the mint band.
+
+**`video-card`** — the rounded hero video frame
+- Background `{colors.canvas}`, 1px `{colors.ink}` border, rounded `{rounded.md}`.
+
+**`testimonial-card`** — a user-love quote card
+- Background `{colors.canvas}`, 1px `{colors.hairline}` border, rounded `{rounded.lg}`, padding `{spacing.lg}`, with an avatar, name, and quote.
+
+**`score-ring`** — the circular AI-match score indicator
+- White surface `{colors.canvas}`, mint value `{colors.primary}` in `{typography.heading-4}`, rounded `{rounded.full}`, size 64px.
+
+### Inputs & Forms
+
+**`text-input`** — search and form fields
+- Background `{colors.canvas}`, 1px `{colors.hairline}` border, text `{colors.ink}`, type `{typography.body-md}`, rounded `{rounded.sm}`, padding `{spacing.sm} {spacing.md}`.
+
+**`job-search-bar`** — the footer job-search control row
+- White pill `{colors.canvas}`, 1px `{colors.hairline}` border, rounded `{rounded.full}`, padding `{spacing.xs} {spacing.md}`, holding Work Model / Location / Experience select controls and a submit.
+
+### Navigation
+
+**`nav-bar`** — top navigation (desktop)
+- Background `{colors.canvas}`, links `{colors.ink}` in `{typography.nav-link}`, padding `{spacing.md}`. Logo left, link cluster center, "Sign In" plus a persistent black `{component.button-primary-sm}` "Join Now" pill right. Collapses to a hamburger under 768px.
+
+**`footer`** — the site footer
+- Background `{colors.canvas}`, muted `{colors.muted}` links in `{typography.body-sm}`, padding `{spacing.section}`. Multi-column link groups, logo, social icons, and the `{component.job-search-bar}` above it.
+
+### Signature Components
+
+**`hero`** — the pale-mint hero band
+- Background `{colors.canvas-mint}`, black display headline `{typography.display}`, padding `{spacing.section}`, with a rounded `{component.video-card}` and a black `{component.button-primary}`.
+
+**`stat-item`** — a trust statistic (2,000,000 users, 80%, No.1 Choice)
+- On the mint band `{colors.canvas-mint}`, big black number `{typography.heading-3}` over a caption, with a small line icon.
+
+**`job-ticker`** — the scrolling black job-listing marquee
+- Full-width black band `{colors.ink}`, white text `{colors.on-dark}` in `{typography.body-sm}`, padding `{spacing.md}`, with continuously scrolling job titles and mint Jobright marks.
+
+**`feature-band`** — an AI-feature section on the mint wash
+- Background `{colors.canvas-mint}`, black headline `{typography.heading-2}`, padding `{spacing.section}`; copy + a black `{component.button-primary}` on one side, a `{component.feature-card}` mockup on the other.
+
+**`testimonial-band-dark`** — the featured black testimonial band
+- Background `{colors.ink}`, white quote `{colors.on-dark}` in `{typography.heading-4}`, padding `{spacing.section}`, with an author avatar and title.
+
+**`faq-item`** — a question accordion row
+- On the mint band `{colors.canvas-mint}`, 1px `{colors.hairline}` divider, question `{colors.ink}` in `{typography.body-md}`, padding `{spacing.md}`, with a plus/expand toggle.
+
+**`cta-band`** — the closing "Let Jobright Take You to..." band
+- Background `{colors.canvas-mint}`, black headline `{typography.heading-2}`, padding `{spacing.section}`, with a `{component.button-green}` and a hand-drawn illustration.
+
+### Examples (illustrative)
+
+> Auto-derived kit-mirror demonstration surfaces (`scripts/derive-examples-block.mjs`). Each `ex-*` entry references brand-native primitives so downstream consumers (`/preview-design`, `/generate-kit`) re-skin the same 10 surfaces consistently. `TO_FILL` markers indicate missing primitives — resolve in the LLM judgment pass.
+
+**`ex-pricing-tier`** — Default Pricing tier card. Re-uses feature-card chrome with brand canvas-soft surface.
+- Properties: `backgroundColor`, `textColor`, `borderColor`, `rounded`, `padding`
+
+**`ex-pricing-tier-featured`** — Featured/highlighted tier — polarity-flipped surface (dark fill + light text in light mode, light fill + dark text in dark mode).
+- Properties: `backgroundColor`, `textColor`, `rounded`, `padding`
+
+**`ex-product-selector`** — What's Included summary card — re-purposed for SaaS / B2B verticals (NOT a literal product gallery).
+- Properties: `backgroundColor`, `rounded`, `padding`
+
+**`ex-cart-drawer`** — Subscription summary — re-purposed for SaaS / B2B (line items per add-on, not literal cart).
+- Properties: `backgroundColor`, `rounded`, `padding`, `item-divider`
+
+**`ex-app-shell-row`** — Sidebar nav row inside the App Shell example. Active state uses brand primary as the indicator.
+- Properties: `backgroundColor`, `activeIndicator`, `rounded`, `padding`

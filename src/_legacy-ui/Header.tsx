@@ -19,21 +19,21 @@ export function Header({ state }: HeaderProps) {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#F6F5F1]/90 backdrop-blur-md border-b border-[rgba(12,15,20,0.11)] transition-colors">
+    <header className="sticky top-0 z-40 w-full bg-canvas/90 backdrop-blur-md border-b border-hairline transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
         {/* Brand Mark & Seal */}
         <div className="flex items-center gap-4">
           <Link
             href="/"
-            className="group flex items-center gap-3 text-decoration-none focus-visible:outline-2 focus-visible:outline-[#0B3B2C] rounded-md p-1 -m-1"
+            className="group flex items-center gap-3 text-decoration-none focus-visible:outline-2 focus-visible:outline-action-deep rounded-md p-1 -m-1"
           >
             {/* Bespoke Geometric SVG Portus Seal */}
-            <div className="relative w-9 h-9 rounded-md bg-[#0C0F14] flex items-center justify-center p-1.5 shadow-sm group-hover:bg-[#0B3B2C] transition-colors">
+            <div className="relative w-9 h-9 rounded-md bg-canvas flex items-center justify-center p-1.5 shadow-sm group-hover:bg-action-deep transition-colors">
               <svg
                 viewBox="0 0 32 32"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-full h-full text-[#F6F5F1]"
+                className="w-full h-full text-canvas"
                 aria-hidden="true"
               >
                 {/* Lisbon Clearinghouse Maritime Compass & Lock Primitives */}
@@ -45,35 +45,35 @@ export function Header({ state }: HeaderProps) {
               </svg>
             </div>
             <div className="flex flex-col">
-              <span className="font-[480] text-lg tracking-tight text-[#0C0F14] leading-none">
+              <span className="font-[480] text-lg tracking-tight text-canvas leading-none">
                 Portus
               </span>
-              <span className="text-[10px] uppercase font-mono tracking-wider text-[#4A5260] mt-0.5">
+              <span className="text-[10px] uppercase font-mono tracking-wider text-text-2 mt-0.5">
                 Treasury Clearing
               </span>
             </div>
           </Link>
 
           {/* Stellar Testnet Status Indicator */}
-          <div className="hidden md:flex items-center gap-2 pl-4 border-l border-[rgba(12,15,20,0.12)]">
+          <div className="hidden md:flex items-center gap-2 pl-4 border-l border-hairline">
             <span
               className={`inline-block w-2 h-2 rounded-full ${
-                isPaused ? "bg-[#B91C1C]" : "bg-[#065F46] animate-pulse"
+                isPaused ? "bg-status-error" : "bg-action-deep animate-pulse"
               }`}
               aria-hidden="true"
             />
-            <span className="text-xs font-mono text-[#4A5260] tabular-nums">
+            <span className="text-xs font-mono text-text-2 tabular-nums">
               Stellar Testnet v{protocolVersion} · Ledger #{latestLedger.toLocaleString()}
             </span>
           </div>
         </div>
 
         {/* Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-5 text-sm font-medium text-[#4A5260]" aria-label="Main Navigation">
+        <nav className="hidden lg:flex items-center gap-5 text-sm font-medium text-text-2" aria-label="Main Navigation">
           <a
             href="#cockpit"
             onClick={handleCockpitScroll}
-            className="inline-flex items-center min-h-8 py-1.5 px-2 rounded-md hover:text-[#0C0F14] transition-colors focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
+            className="inline-flex items-center min-h-8 py-1.5 px-2 rounded-md hover:text-canvas transition-colors focus-visible:outline-2 focus-visible:outline-action-deep"
           >
             Live Cockpit
           </a>
@@ -83,7 +83,7 @@ export function Header({ state }: HeaderProps) {
               e.preventDefault();
               scrollToTarget("#x402-inspector");
             }}
-            className="inline-flex items-center min-h-8 py-1.5 px-2 rounded-md hover:text-[#0C0F14] transition-colors focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
+            className="inline-flex items-center min-h-8 py-1.5 px-2 rounded-md hover:text-canvas transition-colors focus-visible:outline-2 focus-visible:outline-action-deep"
           >
             x402 Wire Inspector
           </a>
@@ -93,19 +93,19 @@ export function Header({ state }: HeaderProps) {
               e.preventDefault();
               scrollToTarget("#fleet");
             }}
-            className="inline-flex items-center min-h-8 py-1.5 px-2 rounded-md hover:text-[#0C0F14] transition-colors focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
+            className="inline-flex items-center min-h-8 py-1.5 px-2 rounded-md hover:text-canvas transition-colors focus-visible:outline-2 focus-visible:outline-action-deep"
           >
             Subsidiary Fleet
           </a>
           <Link
             href="/deck"
-            className="inline-flex items-center min-h-8 py-1.5 px-2 rounded-md hover:text-[#0C0F14] transition-colors focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
+            className="inline-flex items-center min-h-8 py-1.5 px-2 rounded-md hover:text-canvas transition-colors focus-visible:outline-2 focus-visible:outline-action-deep"
           >
             Pitch Deck
           </Link>
           <Link
             href="/architecture"
-            className="inline-flex items-center min-h-8 py-1.5 px-2 rounded-md hover:text-[#0C0F14] transition-colors focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
+            className="inline-flex items-center min-h-8 py-1.5 px-2 rounded-md hover:text-canvas transition-colors focus-visible:outline-2 focus-visible:outline-action-deep"
           >
             Architecture
           </Link>
@@ -117,7 +117,7 @@ export function Header({ state }: HeaderProps) {
             href="#cockpit"
             onClick={handleCockpitScroll}
             data-magnetic="0.25"
-            className="inline-flex items-center justify-center gap-2 min-h-8 px-4 py-2 text-xs sm:text-sm font-medium text-[#FFFFFF] bg-[#0B3B2C] hover:bg-[#12543F] active:scale-[0.98] rounded-md shadow-sm transition-all focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
+            className="inline-flex items-center justify-center gap-2 min-h-8 px-4 py-2 text-xs sm:text-sm font-medium text-text bg-action-deep hover:bg-action-deep active:scale-[0.98] rounded-md shadow-sm transition-all focus-visible:outline-2 focus-visible:outline-action-deep"
           >
             <span>Open Vault Cockpit</span>
             <span className="w-4 h-4 rounded-full bg-white/10 flex items-center justify-center" aria-hidden="true">

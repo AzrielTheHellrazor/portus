@@ -8,12 +8,12 @@ Bu dizindeki ve terminal/telemetri bileşenlerindeki tüm arayüzler aşağıdak
 - **Hiyerarşi:** Zaman damgaları (`timestamp`), HTTP metodları, durum kodları ve işlem hash'leri tek satırda hizalanır.
 
 ## 2. Durum Renkleri (Status Codes & Semantic States)
-- **HTTP 402 (Payment Required):** Sarı / Pirinç (`text-[#D4A24C]` veya `bg-[#D4A24C]/20 border border-[#D4A24C]/40 text-[#D4A24C]`).
-- **HTTP 200 (OK / Settled):** Zümrüt (`text-[#10B981]` veya `bg-[#10B981]/20 border border-[#10B981]/40 text-[#10B981]`).
-- **#9 MerchantNotWhitelisted (Revert / Breach Blocked):** Kırmızı (`text-[#EF4444]` veya `bg-[#EF4444]/20 border border-[#EF4444]/40 text-[#EF4444]`).
-- **Nötr / Ağ Logları:** Soluk beyaz `text-white/75`, ikincil etiketler `text-white/45`.
+- **HTTP 402 (Payment Required):** Sarı / Pirinç (`text-status-pending` veya `bg-status-pending/20 border border-status-pending/40 text-status-pending`).
+- **HTTP 200 (OK / Settled):** Zümrüt (`text-status-ok` veya `bg-status-ok/20 border border-status-ok/40 text-status-ok`).
+- **#9 MerchantNotWhitelisted (Revert / Breach Blocked):** Kırmızı (`text-status-error` veya `bg-status-error/20 border border-status-error/40 text-status-error`).
+- **Nötr / Ağ Logları:** Soluk metin `text-text-2`, ikincil etiketler `text-text-3`.
 
 ## 3. Zemin ve Kenarlıklar
-- Koyu obsidyen zemin (`bg-[#0C0F14]` veya `bg-[#12161F]`).
-- İnce hairline kenarlıklar (`border border-white/10`).
-- Konsol başlıklarında ve terminal sekmelerinde Mercury hap (pill `rounded-full`) rozetleri.
+- Koyu obsidyen zemin (`bg-canvas` veya `bg-raised`).
+- İnce hairline kenarlıklar (`border border-hairline`).
+- Konsol başlıklarında ve terminal sekmelerinde Mercury hap (pill `rounded-pill`) rozetleri.

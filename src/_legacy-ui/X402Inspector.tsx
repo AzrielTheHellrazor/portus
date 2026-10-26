@@ -17,13 +17,13 @@ export function X402Inspector({
   const activeStep = wireTrace[selectedStepIndex] || wireTrace[0];
 
   return (
-    <section id="x402-inspector" className="w-full py-16 md:py-24 bg-[#0C0F14] text-[#F6F5F1] relative">
+    <section id="x402-inspector" className="w-full py-16 md:py-24 bg-canvas text-canvas relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-white/10">
           <div>
-            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#065F46]/20 text-[#34D399] text-xs font-mono font-medium uppercase tracking-wider mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#34D399]" />
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-action-deep/20 text-action text-xs font-mono font-medium uppercase tracking-wider mb-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-action" />
               ACT III · PROTOCOL INSPECTOR
             </div>
             <h2 className="text-2xl sm:text-3xl font-[480] text-white tracking-tight">
@@ -35,7 +35,7 @@ export function X402Inspector({
             </p>
           </div>
 
-          <div className="mt-4 md:mt-0 flex items-center gap-2 text-xs font-mono text-[#34D399] bg-[#065F46]/20 px-3 py-1.5 rounded border border-[#065F46]/40">
+          <div className="mt-4 md:mt-0 flex items-center gap-2 text-xs font-mono text-action bg-action-deep/20 px-3 py-1.5 rounded border border-action-deep/40">
             <span>RFC 9110 · @x402/stellar v2</span>
           </div>
         </div>
@@ -48,22 +48,22 @@ export function X402Inspector({
               <button
                 key={step.step}
                 onClick={() => setSelectedStepIndex(idx)}
-                className={`text-left p-4 rounded-xl border transition-all focus-visible:outline-2 focus-visible:outline-[#34D399] ${
+                className={`text-left p-4 rounded-xl border transition-all focus-visible:outline-2 focus-visible:outline-action ${
                   isSelected
-                    ? "bg-white/10 border-[#34D399] text-white shadow-sm"
+                    ? "bg-white/10 border-action text-white shadow-sm"
                     : "bg-white/[0.03] border-white/10 text-white/75 hover:bg-white/[0.06] hover:text-white"
                 }`}
               >
                 <div className="flex items-center justify-between text-xs font-mono mb-2">
-                  <span className={isSelected ? "text-[#34D399] font-bold" : "text-white/75"}>
+                  <span className={isSelected ? "text-action font-bold" : "text-white/75"}>
                     STEP 0{step.step}
                   </span>
                   {step.httpStatus && (
                     <span
                       className={`px-1.5 py-0.5 rounded text-[10px] font-mono ${
                         step.httpStatus === 402
-                          ? "bg-[#D4A24C] text-[#0C0F14] font-bold"
-                          : "bg-[#065F46] text-white font-bold"
+                          ? "bg-brass text-canvas font-bold"
+                          : "bg-action-deep text-white font-bold"
                       }`}
                     >
                       HTTP {step.httpStatus}
@@ -75,7 +75,7 @@ export function X402Inspector({
                     </span>
                   )}
                   {step.direction === "SDEX_FX" && (
-                    <span className="px-1.5 py-0.5 rounded text-[10px] font-mono bg-[#065F46]/20 text-[#34D399] font-[420]">
+                    <span className="px-1.5 py-0.5 rounded text-[10px] font-mono bg-action-deep/20 text-action font-[420]">
                       SDEX_SWAP
                     </span>
                   )}
@@ -91,15 +91,15 @@ export function X402Inspector({
         {/* Terminal Inspection Deck */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column (7 cols): Step Inspector Details */}
-          <div className="lg:col-span-7 bg-[#12161F] border border-white/10 rounded-[var(--radius-card)] p-6 relative overflow-hidden">
+          <div className="lg:col-span-7 bg-raised border border-white/10 rounded-[var(--radius-card)] p-6 relative overflow-hidden">
             <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#34D399]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-action" />
                 <span className="text-xs font-mono text-white/75">
                   Step {activeStep.step} Detail: {activeStep.direction}
                 </span>
               </div>
-              <span className="text-xs font-mono text-[#34D399] font-[420]">
+              <span className="text-xs font-mono text-action font-[420]">
                 Latency: {activeStep.durationMs || 35}ms
               </span>
             </div>
@@ -116,7 +116,7 @@ export function X402Inspector({
                 >
                   {Object.entries(activeStep.headers).map(([k, v]) => (
                     <div key={k} className="py-0.5 flex gap-2">
-                      <span className="text-[#34D399] shrink-0 font-[420]">{k}:</span>
+                      <span className="text-action shrink-0 font-[420]">{k}:</span>
                       <span className="text-white/90 break-all">{v}</span>
                     </div>
                   ))}
@@ -131,7 +131,7 @@ export function X402Inspector({
               </span>
               <pre
                 data-lenis-prevent
-                className="bg-black/60 border border-white/10 rounded-lg p-4 font-mono text-xs text-[#34D399] overflow-x-auto max-h-60 leading-relaxed"
+                className="bg-black/60 border border-white/10 rounded-lg p-4 font-mono text-xs text-action overflow-x-auto max-h-60 leading-relaxed"
               >
                 {JSON.stringify(activeStep.decodedPayload, null, 2)}
               </pre>
@@ -145,7 +145,7 @@ export function X402Inspector({
                   href={`https://stellar.expert/explorer/testnet/tx/${activeStep.txHash}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center min-h-8 py-1.5 px-2 text-[#34D399] hover:underline truncate max-w-[260px] focus-visible:outline-2 focus-visible:outline-[#34D399]"
+                  className="inline-flex items-center min-h-8 py-1.5 px-2 text-action hover:underline truncate max-w-[260px] focus-visible:outline-2 focus-visible:outline-action"
                 >
                   {activeStep.txHash}
                 </a>
@@ -154,12 +154,12 @@ export function X402Inspector({
           </div>
 
           {/* Right Column (5 cols): Unlocked Macro Feed Viewer */}
-          <div className="lg:col-span-5 bg-[#12161F] border border-white/10 rounded-[var(--radius-card)] p-6">
+          <div className="lg:col-span-5 bg-raised border border-white/10 rounded-[var(--radius-card)] p-6">
             <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
-              <span className="text-xs font-mono uppercase tracking-wider text-[#D4A24C] font-[500]">
+              <span className="text-xs font-mono uppercase tracking-wider text-brass font-[500]">
                 Unlocked Macro Feed (200 OK)
               </span>
-              <span className="text-[11px] font-mono text-[#34D399] bg-[#065F46]/20 px-2 py-0.5 rounded font-[420]">
+              <span className="text-[11px] font-mono text-action bg-action-deep/20 px-2 py-0.5 rounded font-[420]">
                 PAYMENT DELIVERED
               </span>
             </div>
@@ -171,14 +171,14 @@ export function X402Inspector({
 
             <pre
               data-lenis-prevent
-              className="bg-black/60 border border-white/10 rounded-lg p-4 font-mono text-xs text-[#F6F5F1] overflow-x-auto max-h-72 leading-relaxed"
+              className="bg-black/60 border border-white/10 rounded-lg p-4 font-mono text-xs text-canvas overflow-x-auto max-h-72 leading-relaxed"
             >
               {JSON.stringify(intelligencePayload, null, 2)}
             </pre>
 
             <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-white/75">
               <span>Settlement: $2.0000000 USDC</span>
-              <span className="text-[#34D399] font-[420]">JIT from EURC Vault</span>
+              <span className="text-action font-[420]">JIT from EURC Vault</span>
             </div>
           </div>
         </div>

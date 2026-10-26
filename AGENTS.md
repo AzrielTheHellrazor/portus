@@ -1,48 +1,46 @@
-# Portus Development & Design Directives
+# Portus Development & Institutional Design Directives
 
 ## 1. Öncelik Sırası (Hierarchy of Authority)
 Herhangi bir UI bileşeni, sayfa düzeni veya stil geliştirilirken öncelik sırası şöyledir:
-1. **Portus Marka Kimliği & Renk Token'ları:** Bu dosyadaki zümrüt, pirinç ve obsidyen token'ları birincil ve mutlaktır.
-2. **Mercury Yapı, Spacing & Tipografi Ölçeği:** Yapısal kurallar için `@docs/DESIGN.md` izlenir.
-3. **Base UI Erişilebilir Primitives:** Durum yönetimi ve erişilebilirlik için `.agents/skills/base-ui/SKILL.md` geçerlidir.
-4. **Obsidian UI Koyu Yüzey Katmanları:** Koyu tema derinliği ve kontrast için `.agents/skills/obsidian-ui/SKILL.md` geçerlidir.
+1. **Portus İçerik ve Veri Kuralları:** Tek bir kaynak olan `src/config/demo.ts` ve kurumsal hazine direktifleri mutlaktır.
+2. **Jobright Tasarım Sistemi:** `@docs/DESIGN.md` (Jobright) yapı, renk, spacing, radius ve buton geometrisi için temel kaynaktır.
+3. **Awwwards / Jüri Standartları:** Tipografi dengesi, 60fps akıcı geçişler, temiz anlamsal HTML, SEO ve erişilebilirlik.
+4. **Base UI Erişilebilir Primitives:** Switch, Dialog, Tabs, Meter, Tooltip bileşenleri.
 
 ---
 
-## 2. Portus Renk & Tipografi Token'ları
-
-### Zümrüt (Sovereign Pine / Emerald)
-- **Koyu Zemin Üzerinde:** `--color-pine-light: #10B981` (İkincil zümrüt: `#065F46`, Durum: 200 OK, Başarı)
-- **Açık Zemin Üzerinde:** `--color-pine: #0B3B2C` (Kurumsal koyu çam, WCAG AAA `> 9.8:1`)
-
-### Pirinç (Clearinghouse Brass)
-- **Koyu Zemin Üzerinde:** `--color-brass-light: #D4A24C` (HTTP 402 rozeti, CFO butonları, WCAG AAA `> 8.35:1`)
-- **Açık Zemin Üzerinde:** `--color-brass: #785316` (WCAG AAA `> 6.3:1`)
-
-### Obsidyen Zeminler (Obsidian Palette)
-- **Kök Kanvas:** `--surface-canvas: #0C0F14`
-- **Kart Yüzeyi:** `--surface-raised: #12161F`
-- **Yükseltilmiş Yüzey:** `--surface-overlay: #181E29`
-- **Hairline Kenarlık:** `border: 1px solid rgba(255, 255, 255, 0.08)`
-- **Hairline Kuralı:** Kartlar 1px hairline kenarlık kullanır (rgba(255,255,255,0.08) koyu zeminde). Mercury'nin "cards lift by fill colour, not borders" kuralı bu projede geçersizdir.
-
-### Tabular-Nums Mono Rakam Kuralı
-- Tüm parasal tutarlar (`EURC`, `USDC`), döviz kurları, cüzdan/kontrat adresleri, işlem hash'leri, sayaçlar ve blok numaraları istisnasız `font-mono tabular-nums` sınıfıyla yazılmalıdır.
+## 2. Kesin Stil ve Token Kuralları
+- **Bileşenlerde Ham Değer Yasağı:** Bileşenlerde ham hex (`#...`), `rgba(...)` veya Tailwind arbitrary renk değeri (`bg-[#...]`, `text-[rgba(...)]`) kullanmak **KESİNLİKLE YASAKTIR**. Yalnızca `globals.css` içinde tanımlanmış semantik token sınıfları (`bg-canvas`, `bg-surface`, `bg-surface-soft`, `text-text`, `text-text-2`, `bg-action`, `border-hairline`, vb.) kullanılabilir.
+- **Konsol / Panel Token'ları:** Terminal ve Wire Inspector açık sayfa içinde koyu "inset" paneller olarak inşa edilir. Bu panellerde `--console-bg`, `--console-text`, `--console-hairline` token'ları kullanılır.
+- **Tipografi & Tabular-Nums:** Tüm parasal değerler (`EURC`, `USDC`), döviz kurları, cüzdan/kontrat adresleri, işlem hash'leri, sayaçlar ve blok numaraları istisnasız `font-mono tabular-nums` ile yazılır.
+- **Yasaklar:**
+  - Gradient blob ve glow efekti
+  - Emoji ikonlar
+  - Stok illüstrasyonlar
+  - "Powered by" bandı
+  - Her bölümü ortalanmış başlık + alt başlık + 3 kart kalıbıyla dizmek
+  - Pazarlama sıfatları ("revolutionary", "seamless", "next-gen")
+  - Kullanıcıya görünen metinlerde iç referanslar ("Swiss Private Bank", "specimen", "phase", "lab")
 
 ---
 
-## 3. KESİN KURAL: İndigo / Mor Kullanma (Strict Ban on Indigo/Violet)
-- Mercury tasarım sisteminde yer alan `#5266eb` (indigo/mor), `#9cb4e8` (periwinkle), `#edecfb` (lavender) veya ink-violet tonları **KESİNLİKLE KULLANILMAYACAKTIR**.
-- Mercury'den **yalnızca** yapısal öğeler alınır: hap (pill) buton geometrisi (`rounded-full`), kart kavisleri (`rounded-2xl` / `rounded-3xl`), boşluk ölçekleri ve tipografi hiyerarşisi.
-- Mercury'nin birincil buton rengi yerine Portus Zümrüt (`#0B3B2C` / `#10B981`) ve Pirinç (`#D4A24C`) kullanılır.
+## 3. Metin Kuralları
+- Her bölüm başlığı en fazla **6 kelime**.
+- Her açıklama en fazla **1 kısa cümle**.
+- Teknik detaylar (P-256, Soroban, CAP-0085) ana metne yazılmaz; küçük etiketler, tooltip veya ikinci satırda `--text-2` renginde verilir.
+- Dil kesinlikle İngilizce.
 
 ---
 
-## 4. Tasarım Sistemi Referansı
-Tüm spacing ölçekleri, kart yapıları ve tipografik hiyerarşi için referans:
-`@docs/DESIGN.md`
+## 4. Veri Tutarlılığı (`src/config/demo.ts`)
+Tüm bileşenler verileri `src/config/demo.ts` dosyasından okur:
+- Rezerv: 50,000.00 EURC (EUR/USD 1.0862, ≈ $54,310.00 USDC)
+- DEPT-OPS: Günlük limit $500.00 USDC, izinli satıcı YALNIZCA AWS
+- AGENT-FX: Günlük limit $10.00 USDC, x402
+- Stellar tx hash'leri: 64 karakterlik küçük harf hex, "0x" ön eksiz.
+- Kasa kontrat adresi dinamik olarak `.env` veya `manifest.json`'dan okunur (XLM SAC kullanılmaz).
 
-<!-- BEGIN:nextjs-agent-rules -->
-## Next.js Runtime Policy
+---
+
+## 5. Next.js & Runtime Policy
 Always prefer `bun` (`bun run`, `bun test`, `bunx`) over `npm` or `node`.
-<!-- END:nextjs-agent-rules -->

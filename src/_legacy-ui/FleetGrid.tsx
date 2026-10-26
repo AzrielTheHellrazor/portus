@@ -7,7 +7,7 @@ import {
   stellarLabContractUrl,
   stellarExpertContractUrl,
   stellarExpertTxUrl,
-} from "./stellar-lab";
+} from "@/components/treasury/stellar-lab";
 
 interface FleetGridProps {
   fleet?: SubsidiaryVaultRecord[];
@@ -156,36 +156,36 @@ export function FleetGrid({
   };
 
   return (
-    <section id="fleet" className="w-full py-16 md:py-24 bg-[#F6F5F1] border-b border-[rgba(12,15,20,0.11)]">
+    <section id="fleet" className="w-full py-16 md:py-24 bg-canvas border-b border-hairline">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-[rgba(12,15,20,0.11)] gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-hairline gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#0B3B2C]/10 text-[#0B3B2C] text-xs font-mono font-medium uppercase tracking-wider mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0B3B2C]" />
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-action-deep/10 text-action-deep text-xs font-mono font-medium uppercase tracking-wider mb-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-action-deep" />
               ACT IV · SUBSIDIARY ARCHITECTURE
             </div>
-            <h2 className="text-2xl sm:text-3xl font-[480] text-[#0C0F14] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-[480] text-canvas tracking-tight">
               CAP-0085 Subsidiary Treasury Fleet
             </h2>
-            <p className="text-sm text-[#4A5260] mt-1 max-w-2xl leading-relaxed font-[380]">
+            <p className="text-sm text-text-2 mt-1 max-w-2xl leading-relaxed font-[380]">
               European multinationals scale regional operating entities without bytecode bloat.
               The Portus Factory deploys regional vaults that reference a single shared executable Wasm tag
-              (<code className="text-[#0C0F14] font-mono">v1_vault</code>), reducing state storage fees by over 98%.
+              (<code className="text-canvas font-mono">v1_vault</code>), reducing state storage fees by over 98%.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-            <div className="text-xs font-mono text-[#0B3B2C] hidden lg:block">
+            <div className="text-xs font-mono text-action-deep hidden lg:block">
               <span className="font-[420]">Shared Bytecode Hash:</span>{" "}
-              <span className="text-[#4A5260]">{wasmHash.slice(0, 14)}...</span>
+              <span className="text-text-2">{wasmHash.slice(0, 14)}...</span>
             </div>
 
             <button
               type="button"
               onClick={handleOpenModal}
               data-magnetic="0.2"
-              className="inline-flex items-center gap-2 min-h-8 py-2.5 px-4 rounded-md bg-[#0B3B2C] hover:bg-[#12543F] text-white text-xs font-[420] tracking-wide shadow-xs transition-all focus-visible:outline-2 focus-visible:outline-[#0B3B2C] active:scale-[0.98]"
+              className="inline-flex items-center gap-2 min-h-8 py-2.5 px-4 rounded-md bg-action-deep hover:bg-action-deep text-white text-xs font-[420] tracking-wide shadow-xs transition-all focus-visible:outline-2 focus-visible:outline-action-deep active:scale-[0.98]"
             >
               <svg
                 width="14"
@@ -215,40 +215,40 @@ export function FleetGrid({
                 key={vault.subsidiaryCode}
                 className={`bg-white border rounded-[var(--radius-card)] p-6 shadow-xs flex flex-col justify-between transition-all ${
                   isNewlyDeployed
-                    ? "border-[#0B3B2C] ring-2 ring-[#0B3B2C]/20 shadow-md"
-                    : "border-[rgba(12,15,20,0.11)]"
+                    ? "border-action-deep ring-2 ring-action-deep/20 shadow-md"
+                    : "border-hairline"
                 }`}
               >
                 <div>
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <span className="text-[11px] font-mono uppercase tracking-wider text-[#785316] font-[500]">
+                      <span className="text-[11px] font-mono uppercase tracking-wider text-brass font-[500]">
                         {vault.subsidiaryCode} · {vault.jurisdiction}
                       </span>
-                      <h3 className="text-xl font-[480] text-[#0C0F14] tracking-tight mt-0.5">
+                      <h3 className="text-xl font-[480] text-canvas tracking-tight mt-0.5">
                         {vault.name}
                       </h3>
                     </div>
                     {isNewlyDeployed ? (
-                      <span className="px-2.5 py-1 rounded bg-[#0B3B2C] text-white text-[10px] font-mono font-semibold animate-pulse">
+                      <span className="px-2.5 py-1 rounded bg-action-deep text-white text-[10px] font-mono font-semibold animate-pulse">
                         NEWLY DEPLOYED
                       </span>
                     ) : (
-                      <span className="px-2.5 py-1 rounded bg-[#065F46]/10 text-[#065F46] text-xs font-mono font-semibold">
+                      <span className="px-2.5 py-1 rounded bg-action-deep/10 text-action-deep text-xs font-mono font-semibold">
                         ACTIVE
                       </span>
                     )}
                   </div>
 
                   <div className="space-y-3 font-mono text-xs my-6">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-[rgba(12,15,20,0.06)] gap-2">
-                      <span className="text-[#646D7C]">Vault Contract ID</span>
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-hairline gap-2">
+                      <span className="text-text-3">Vault Contract ID</span>
                       <div className="flex items-center gap-2 flex-wrap">
                         <a
                           href={stellarExpertContractUrl(vault.vaultAddress)}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[#0B3B2C] hover:text-[#12543F] font-[420] underline underline-offset-4 truncate max-w-[140px] inline-flex items-center min-h-8 py-1.5 px-2 rounded focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
+                          className="text-action-deep hover:text-action-deep font-[420] underline underline-offset-4 truncate max-w-[140px] inline-flex items-center min-h-8 py-1.5 px-2 rounded focus-visible:outline-2 focus-visible:outline-action-deep"
                           title={vault.vaultAddress}
                         >
                           {vault.vaultAddress.slice(0, 8)}...{vault.vaultAddress.slice(-4)}
@@ -258,7 +258,7 @@ export function FleetGrid({
                           href={stellarLabContractUrl(vault.vaultAddress)}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[#785316] hover:text-[#0C0F14] font-[420] bg-[#785316]/10 hover:bg-[#785316]/20 inline-flex items-center min-h-8 py-1.5 px-2 rounded transition-all focus-visible:outline-2 focus-visible:outline-[#785316]"
+                          className="text-brass hover:text-canvas font-[420] bg-brass/10 hover:bg-brass/20 inline-flex items-center min-h-8 py-1.5 px-2 rounded transition-all focus-visible:outline-2 focus-visible:outline-brass"
                         >
                           <span>Lab</span>
                           <span aria-hidden="true" className="ml-1">↗</span>
@@ -266,33 +266,33 @@ export function FleetGrid({
                       </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-[rgba(12,15,20,0.06)]">
-                      <span className="text-[#646D7C]">CAP-0085 Executable Tag</span>
-                      <span className="text-[#0C0F14] font-[420]">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-hairline">
+                      <span className="text-text-3">CAP-0085 Executable Tag</span>
+                      <span className="text-canvas font-[420]">
                         {vault.executableTag} (Shared Wasm)
                       </span>
                     </div>
 
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between">
-                      <span className="text-[#646D7C]">Deployed Ledger</span>
-                      <span className="text-[#0C0F14] tabular-nums font-semibold">
+                      <span className="text-text-3">Deployed Ledger</span>
+                      <span className="text-canvas tabular-nums font-semibold">
                         #{vault.deployedLedger || 5381488}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-[rgba(12,15,20,0.08)] flex items-center justify-between text-xs font-mono">
-                  <span className="text-[#4A5260]">Parent Factory:</span>
+                <div className="pt-4 border-t border-hairline flex items-center justify-between text-xs font-mono">
+                  <span className="text-text-2">Parent Factory:</span>
                   <a
                     href={stellarLabContractUrl(factoryContractId)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#0C0F14] font-medium hover:text-[#785316] truncate max-w-[150px] inline-flex items-center min-h-8 py-1.5 px-2 rounded focus-visible:outline-2 focus-visible:outline-[#0B3B2C]"
+                    className="text-canvas font-medium hover:text-brass truncate max-w-[150px] inline-flex items-center min-h-8 py-1.5 px-2 rounded focus-visible:outline-2 focus-visible:outline-action-deep"
                     title="Inspect Factory in Stellar Lab"
                   >
                     {factoryContractId.slice(0, 10)}...
-                    <span aria-hidden="true" className="ml-1 text-[10px] text-[#785316]">Lab ↗</span>
+                    <span aria-hidden="true" className="ml-1 text-[10px] text-brass">Lab ↗</span>
                   </a>
                 </div>
               </div>
@@ -301,30 +301,30 @@ export function FleetGrid({
         </div>
 
         {/* Technical Value Callout Strip */}
-        <div className="bg-[#FFFFFF] border border-[rgba(12,15,20,0.11)] rounded-xl p-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+        <div className="bg-text border border-hairline rounded-xl p-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
           <div>
-            <h4 className="font-[480] text-[#0C0F14] font-sans text-sm mb-1">
+            <h4 className="font-[480] text-canvas font-sans text-sm mb-1">
               98% State Storage Reduction
             </h4>
-            <p className="text-[#4A5260] leading-relaxed font-[380]">
+            <p className="text-text-2 leading-relaxed font-[380]">
               Standard contract deployment duplicates full Wasm binaries for every entity.
               CAP-0085 stores bytecode once on Stellar; subsidiaries only instantiate persistent state keys.
             </p>
           </div>
           <div>
-            <h4 className="font-[480] text-[#0C0F14] font-sans text-sm mb-1">
+            <h4 className="font-[480] text-canvas font-sans text-sm mb-1">
               Audited Single-Point Upgrades
             </h4>
-            <p className="text-[#4A5260] leading-relaxed font-[380]">
+            <p className="text-text-2 leading-relaxed font-[380]">
               When protocol audits yield version improvements, the factory updates the executable pointer tag.
               Subsidiaries adopt verified security patches without coordinating 50 individual migrations.
             </p>
           </div>
           <div>
-            <h4 className="font-[480] text-[#0C0F14] font-sans text-sm mb-1">
+            <h4 className="font-[480] text-canvas font-sans text-sm mb-1">
               Regional Autonomy & Ringfencing
             </h4>
-            <p className="text-[#4A5260] leading-relaxed font-[380]">
+            <p className="text-text-2 leading-relaxed font-[380]">
               Each subsidiary maintains isolated spend policies, separate merchant whitelists, and local currency
               tax attribution while sharing audited group infrastructure.
             </p>
@@ -341,20 +341,20 @@ export function FleetGrid({
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs overflow-y-auto"
         >
           {/* Modal Card */}
-          <div className="relative w-full max-w-xl bg-white border border-[rgba(12,15,20,0.16)] rounded-[var(--radius-card)] shadow-2xl p-6 sm:p-8 text-[#0C0F14] my-8 max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-xl bg-white border border-hairline rounded-[var(--radius-card)] shadow-2xl p-6 sm:p-8 text-canvas my-8 max-h-[90vh] overflow-y-auto">
             {/* Modal Header */}
-            <div className="flex items-start justify-between pb-4 border-b border-[rgba(12,15,20,0.11)]">
+            <div className="flex items-start justify-between pb-4 border-b border-hairline">
               <div>
-                <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[#0B3B2C]/10 text-[#0B3B2C] text-[11px] font-mono font-[500] uppercase tracking-wider mb-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B3B2C]" />
+                <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-action-deep/10 text-action-deep text-[11px] font-mono font-[500] uppercase tracking-wider mb-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-action-deep" />
                   CAP-0085 FACTORY CONTRACT
                 </div>
-                <h3 id="modal-headline" className="text-xl font-[480] tracking-tight text-[#0C0F14]">
+                <h3 id="modal-headline" className="text-xl font-[480] tracking-tight text-canvas">
                   Deploy Regional Subsidiary Vault
                 </h3>
-                <p className="text-xs text-[#4A5260] mt-0.5 font-[380]">
+                <p className="text-xs text-text-2 mt-0.5 font-[380]">
                   Instantiate a new subsidiary vault referencing shared executable tag{" "}
-                  <code className="text-[#0C0F14] font-mono font-semibold">v1_vault</code> on Stellar Testnet.
+                  <code className="text-canvas font-mono font-semibold">v1_vault</code> on Stellar Testnet.
                 </p>
               </div>
 
@@ -363,7 +363,7 @@ export function FleetGrid({
                 onClick={handleCloseModal}
                 disabled={isDeploying}
                 aria-label="Close dialog"
-                className="inline-flex items-center justify-center min-h-8 py-1.5 px-2.5 rounded-md text-[#4A5260] hover:text-[#0C0F14] hover:bg-black/5 transition-colors focus-visible:outline-2 focus-visible:outline-[#0B3B2C] disabled:opacity-50"
+                className="inline-flex items-center justify-center min-h-8 py-1.5 px-2.5 rounded-md text-text-2 hover:text-canvas hover:bg-black/5 transition-colors focus-visible:outline-2 focus-visible:outline-action-deep disabled:opacity-50"
               >
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="3" y1="3" x2="13" y2="13" />
@@ -374,7 +374,7 @@ export function FleetGrid({
 
             {/* Judge Presets Strip */}
             <div className="mt-4 pt-1">
-              <span className="block text-[11px] font-mono uppercase tracking-wider text-[#785316] font-semibold mb-2">
+              <span className="block text-[11px] font-mono uppercase tracking-wider text-brass font-semibold mb-2">
                 1-Click Judge Presets:
               </span>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -386,8 +386,8 @@ export function FleetGrid({
                     disabled={isDeploying}
                     className={`min-h-8 px-2 py-1.5 rounded text-[11px] font-mono font-semibold border text-left transition-all ${
                       subsidiaryCode === preset.code
-                        ? "bg-[#0B3B2C] text-white border-[#0B3B2C]"
-                        : "bg-[#F6F5F1] text-[#0C0F14] border-[rgba(12,15,20,0.14)] hover:border-[#0C0F14]"
+                        ? "bg-action-deep text-white border-action-deep"
+                        : "bg-canvas text-canvas border-hairline hover:border-canvas"
                     }`}
                   >
                     <div className="truncate">{preset.code.replace(/_/g, " ")}</div>
@@ -400,7 +400,7 @@ export function FleetGrid({
             {/* Deployment Form */}
             <form onSubmit={handleSubmitDeployment} className="mt-5 space-y-4">
               <div>
-                <label htmlFor="subsidiaryCode" className="block text-xs font-mono font-semibold text-[#0C0F14] mb-1">
+                <label htmlFor="subsidiaryCode" className="block text-xs font-mono font-semibold text-canvas mb-1">
                   Subsidiary Code (CAP-0085 Symbol identifier)
                 </label>
                 <input
@@ -412,15 +412,15 @@ export function FleetGrid({
                   maxLength={30}
                   required
                   disabled={isDeploying}
-                  className="w-full px-3 py-2 text-sm font-mono bg-[#F6F5F1] border border-[rgba(12,15,20,0.18)] rounded-md focus:bg-white focus:border-[#0B3B2C] focus:outline-hidden focus:ring-1 focus:ring-[#0B3B2C] transition-colors"
+                  className="w-full px-3 py-2 text-sm font-mono bg-canvas border border-hairline rounded-md focus:bg-white focus:border-action-deep focus:outline-hidden focus:ring-1 focus:ring-action-deep transition-colors"
                 />
-                <span className="text-[10px] text-[#646D7C] font-mono mt-0.5 block">
+                <span className="text-[10px] text-text-3 font-mono mt-0.5 block">
                   On-chain Soroban Symbol (max 30 uppercase chars, alphanumeric & underscore)
                 </span>
               </div>
 
               <div>
-                <label htmlFor="entityName" className="block text-xs font-mono font-semibold text-[#0C0F14] mb-1">
+                <label htmlFor="entityName" className="block text-xs font-mono font-semibold text-canvas mb-1">
                   Legal Entity Name
                 </label>
                 <input
@@ -431,13 +431,13 @@ export function FleetGrid({
                   placeholder="e.g. Portus APAC Pte. Ltd."
                   required
                   disabled={isDeploying}
-                  className="w-full px-3 py-2 text-sm bg-[#F6F5F1] border border-[rgba(12,15,20,0.18)] rounded-md focus:bg-white focus:border-[#0B3B2C] focus:outline-hidden focus:ring-1 focus:ring-[#0B3B2C] transition-colors"
+                  className="w-full px-3 py-2 text-sm bg-canvas border border-hairline rounded-md focus:bg-white focus:border-action-deep focus:outline-hidden focus:ring-1 focus:ring-action-deep transition-colors"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="jurisdiction" className="block text-xs font-mono font-semibold text-[#0C0F14] mb-1">
+                  <label htmlFor="jurisdiction" className="block text-xs font-mono font-semibold text-canvas mb-1">
                     Jurisdiction
                   </label>
                   <input
@@ -448,12 +448,12 @@ export function FleetGrid({
                     placeholder="e.g. Singapore, SG"
                     required
                     disabled={isDeploying}
-                    className="w-full px-3 py-2 text-sm bg-[#F6F5F1] border border-[rgba(12,15,20,0.18)] rounded-md focus:bg-white focus:border-[#0B3B2C] focus:outline-hidden focus:ring-1 focus:ring-[#0B3B2C] transition-colors"
+                    className="w-full px-3 py-2 text-sm bg-canvas border border-hairline rounded-md focus:bg-white focus:border-action-deep focus:outline-hidden focus:ring-1 focus:ring-action-deep transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="executableTag" className="block text-xs font-mono font-semibold text-[#0C0F14] mb-1">
+                  <label htmlFor="executableTag" className="block text-xs font-mono font-semibold text-canvas mb-1">
                     Factory Executable Tag
                   </label>
                   <div className="relative">
@@ -465,9 +465,9 @@ export function FleetGrid({
                       placeholder="v1_vault"
                       required
                       disabled={isDeploying}
-                      className="w-full px-3 py-2 text-sm font-mono bg-[#F6F5F1] border border-[rgba(12,15,20,0.18)] rounded-md focus:bg-white focus:border-[#0B3B2C] focus:outline-hidden focus:ring-1 focus:ring-[#0B3B2C] transition-colors"
+                      className="w-full px-3 py-2 text-sm font-mono bg-canvas border border-hairline rounded-md focus:bg-white focus:border-action-deep focus:outline-hidden focus:ring-1 focus:ring-action-deep transition-colors"
                     />
-                    <span className="absolute right-2 top-2 px-1.5 py-0.5 rounded bg-black/5 text-[10px] font-mono text-[#646D7C]">
+                    <span className="absolute right-2 top-2 px-1.5 py-0.5 rounded bg-black/5 text-[10px] font-mono text-text-3">
                       CAP-0085
                     </span>
                   </div>
@@ -476,7 +476,7 @@ export function FleetGrid({
 
               {/* Error Message */}
               {deployError && (
-                <div className="p-3 rounded-lg bg-[#B91C1C]/10 border border-[#B91C1C]/30 text-[#B91C1C] text-xs font-mono flex items-start gap-2">
+                <div className="p-3 rounded-lg bg-status-error/10 border border-status-error/30 text-status-error text-xs font-mono flex items-start gap-2">
                   <span className="font-bold">Error:</span>
                   <span className="leading-relaxed">{deployError}</span>
                 </div>
@@ -484,26 +484,26 @@ export function FleetGrid({
 
               {/* Deployment Success Card */}
               {deployResult && (
-                <div className="p-4 rounded-xl bg-[#065F46]/10 border border-[#065F46]/30 text-[#0C0F14] space-y-3 font-mono text-xs">
+                <div className="p-4 rounded-xl bg-action-deep/10 border border-action-deep/30 text-canvas space-y-3 font-mono text-xs">
                   <div className="flex items-center justify-between">
-                    <span className="text-[#065F46] font-bold flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-[#065F46] animate-pulse" />
+                    <span className="text-action-deep font-bold flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-action-deep animate-pulse" />
                       ✓ Confirmed on Stellar Testnet
                     </span>
-                    <span className="text-[11px] bg-white px-2 py-0.5 rounded border border-[#065F46]/30 text-[#065F46] font-semibold">
+                    <span className="text-[11px] bg-white px-2 py-0.5 rounded border border-action-deep/30 text-action-deep font-semibold">
                       Ledger #{deployResult.ledger}
                     </span>
                   </div>
 
                   <div className="bg-white/80 p-3 rounded-lg space-y-2 border border-black/5 text-[11px]">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-[#646D7C]">New Vault Address:</span>
+                      <span className="text-text-3">New Vault Address:</span>
                       <div className="flex items-center gap-2">
                         <a
                           href={deployResult.contractUrl || stellarExpertContractUrl(deployResult.subsidiary.vaultAddress)}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[#0B3B2C] font-semibold underline underline-offset-2 hover:text-[#12543F]"
+                          className="text-action-deep font-semibold underline underline-offset-2 hover:text-action-deep"
                         >
                           {deployResult.subsidiary.vaultAddress.slice(0, 10)}...{deployResult.subsidiary.vaultAddress.slice(-4)} ↗
                         </a>
@@ -511,7 +511,7 @@ export function FleetGrid({
                           href={stellarLabContractUrl(deployResult.subsidiary.vaultAddress)}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[#785316] font-semibold bg-[#785316]/10 px-1.5 py-0.5 rounded hover:bg-[#785316]/20"
+                          className="text-brass font-semibold bg-brass/10 px-1.5 py-0.5 rounded hover:bg-brass/20"
                         >
                           Lab ↗
                         </a>
@@ -519,32 +519,32 @@ export function FleetGrid({
                     </div>
 
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-[#646D7C]">Transaction Hash:</span>
+                      <span className="text-text-3">Transaction Hash:</span>
                       <a
                         href={deployResult.explorerUrl || stellarExpertTxUrl(deployResult.txHash)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#0B3B2C] font-semibold underline underline-offset-2 hover:text-[#12543F] truncate max-w-[180px]"
+                        className="text-action-deep font-semibold underline underline-offset-2 hover:text-action-deep truncate max-w-[180px]"
                       >
                         {deployResult.txHash.slice(0, 12)}...{deployResult.txHash.slice(-4)} ↗
                       </a>
                     </div>
 
                     <div className="flex items-center justify-between gap-2 pt-1 border-t border-black/5">
-                      <span className="text-[#646D7C]">State Storage Efficiency:</span>
-                      <span className="text-[#065F46] font-bold">98% saved vs full bytecode</span>
+                      <span className="text-text-3">State Storage Efficiency:</span>
+                      <span className="text-action-deep font-bold">98% saved vs full bytecode</span>
                     </div>
                   </div>
                 </div>
               )}
 
               {/* Action Buttons */}
-              <div className="pt-3 border-t border-[rgba(12,15,20,0.11)] flex items-center justify-end gap-3">
+              <div className="pt-3 border-t border-hairline flex items-center justify-end gap-3">
                 <button
                   type="button"
                   onClick={handleCloseModal}
                   disabled={isDeploying}
-                  className="min-h-8 py-2 px-4 rounded-md text-xs font-[420] text-[#4A5260] hover:text-[#0C0F14] hover:bg-black/5 transition-colors focus-visible:outline-2 focus-visible:outline-[#0B3B2C] disabled:opacity-50"
+                  className="min-h-8 py-2 px-4 rounded-md text-xs font-[420] text-text-2 hover:text-canvas hover:bg-black/5 transition-colors focus-visible:outline-2 focus-visible:outline-action-deep disabled:opacity-50"
                 >
                   {deployResult ? "Close" : "Cancel"}
                 </button>
@@ -553,7 +553,7 @@ export function FleetGrid({
                   type="submit"
                   disabled={isDeploying}
                   data-magnetic="0.2"
-                  className="inline-flex items-center justify-center gap-2 min-h-8 py-2.5 px-5 rounded-md bg-[#0B3B2C] hover:bg-[#12543F] text-white text-xs font-[420] tracking-wide shadow-xs transition-all focus-visible:outline-2 focus-visible:outline-[#0B3B2C] disabled:opacity-60 active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2 min-h-8 py-2.5 px-5 rounded-md bg-action-deep hover:bg-action-deep text-white text-xs font-[420] tracking-wide shadow-xs transition-all focus-visible:outline-2 focus-visible:outline-action-deep disabled:opacity-60 active:scale-[0.98]"
                 >
                   {isDeploying ? (
                     <>
